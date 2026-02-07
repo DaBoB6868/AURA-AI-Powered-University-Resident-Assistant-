@@ -3,6 +3,7 @@
 import { ChatComponent } from '@/components/ChatComponent';
 import { Navigation } from '@/components/Navigation';
 import RecycleChecker from '@/components/RecycleChecker';
+import FAQSection from '@/components/FAQSection';
 
 export default function Home() {
   return (
@@ -17,9 +18,10 @@ export default function Home() {
           <div className="lg:col-span-2 min-h-0 overflow-hidden rounded-xl shadow-md border border-gray-200">
             <ChatComponent />
           </div>
-          {/* Recycle Checker sidebar */}
-          <aside className="lg:col-span-1">
+          {/* Sidebar: RecycleChecker + FAQ */}
+          <aside className="lg:col-span-1 space-y-4 overflow-y-auto">
             <RecycleChecker />
+            <FAQSection />
           </aside>
         </div>
       </div>

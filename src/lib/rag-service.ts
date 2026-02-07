@@ -18,7 +18,8 @@ interface Message {
 
 export async function generateRAGResponse(
   userQuery: string,
-  conversationHistory: Message[] = []
+  conversationHistory: Message[] = [],
+  userLocation?: string,
 ): Promise<{ response: string; sources: string[] }> {
   try {
     // Search for relevant documents with confidence scores
@@ -44,9 +45,13 @@ export async function generateRAGResponse(
         : 'Focus primarily on the provided community guides for accurate information.';
 
     // Build the system prompt
+    const locationContext = userLocation
+      ? `\nThe student lives in ${userLocation}. When relevant, mention nearby dining halls, resources, and their specific front desk based on their location.`
+      : '';
+
     const systemPrompt = `You are a friendly and knowledgeable UGA (University of Georgia) Dorm RA (Resident Assistant) chatbot. You help UGA students with questions about UGA dorm policies, UGA Housing community guidelines, campus resources at the University of Georgia in Athens, GA, and residential life at UGA.
 
-${confidenceNote}
+${confidenceNote}${locationContext}
 
 Always frame answers in the context of UGA. Reference UGA-specific services, buildings, and policies when possible. If a student asks something general, relate it back to UGA resources.
 
@@ -84,7 +89,8 @@ Be friendly, supportive, and professional. Keep responses concise and helpful. G
 
 export async function generateStreamingRAGResponse(
   userQuery: string,
-  conversationHistory: Message[] = []
+  conversationHistory: Message[] = [],
+  userLocation?: string,
 ) {
   const searchResults = await vectorStore.searchWithScores(userQuery, 5);
   const relevantDocs = searchResults.map((r) => r.doc);
@@ -105,9 +111,13 @@ export async function generateStreamingRAGResponse(
       ? 'If the community guides do not contain enough information, supplement with general knowledge of common dorm policies and best practices.'
       : 'Focus primarily on the provided community guides for accurate information.';
 
+  const locationContext = userLocation
+    ? `\nThe student lives in ${userLocation}. When relevant, mention nearby dining halls, resources, and their specific front desk based on their location.`
+    : '';
+
   const systemPrompt = `You are a friendly and knowledgeable UGA (University of Georgia) Dorm RA (Resident Assistant) chatbot. You help UGA students with questions about UGA dorm policies, UGA Housing community guidelines, campus resources at the University of Georgia in Athens, GA, and residential life at UGA.
 
-${confidenceNote}
+${confidenceNote}${locationContext}
 
 Always frame answers in the context of UGA. Reference UGA-specific services, buildings, and policies when possible. If a student asks something general, relate it back to UGA resources.
 

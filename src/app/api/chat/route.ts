@@ -10,12 +10,13 @@ interface ChatRequest {
   message: string;
   conversationHistory?: ChatMessage[];
   stream?: boolean;
+  userLocation?: string;
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = (await request.json()) as ChatRequest;
-    const { message, conversationHistory = [], stream = false } = body;
+    const { message, conversationHistory = [], stream = false, userLocation } = body;
 
     if (!message || message.trim().length === 0) {
       return NextResponse.json(
@@ -28,7 +29,8 @@ export async function POST(request: NextRequest) {
       // Implement streaming response
       const responseStream = await generateStreamingRAGResponse(
         message,
-        conversationHistory
+        conversationHistory,
+        userLocation,
       );
 
       const encoder = new TextEncoder();
@@ -61,7 +63,8 @@ export async function POST(request: NextRequest) {
       // Non-streaming response
       const { response, sources } = await generateRAGResponse(
         message,
-        conversationHistory
+        conversationHistory,
+        userLocation,
       );
 
       return NextResponse.json({

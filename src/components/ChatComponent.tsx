@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Loader, MessageCircle } from 'lucide-react';
+import { Send, Loader, MessageCircle, MapPin } from 'lucide-react';
 import { EmergencyBanner } from './EmergencyBanner';
 import { ScheduleModal } from './ScheduleModal';
 
@@ -19,8 +19,9 @@ export function ChatComponent() {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showSources, setShowSources] = useState<string | null>(null);
-  const [showEmergencyBanner, setShowEmergencyBanner] = useState(true);
   const [showScheduleModal, setShowScheduleModal] = useState(false);
+  const [userLocation, setUserLocation] = useState<string>('');
+  const [locationSet, setLocationSet] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -61,6 +62,7 @@ export function ChatComponent() {
           message: input,
           conversationHistory,
           stream: false,
+          userLocation: userLocation || undefined,
         }),
       });
 
@@ -104,6 +106,11 @@ export function ChatComponent() {
 
   return (
     <div className="flex flex-col h-full bg-white">
+      {/* Emergency Warning Tag - always visible at top */}
+      <div className="px-3 pt-3">
+        <EmergencyBanner onRequestSchedule={() => setShowScheduleModal(true)} />
+      </div>
+
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto p-6">
         {messages.length === 0 ? (
@@ -121,9 +128,24 @@ export function ChatComponent() {
             <h1 className="text-5xl font-bold text-gray-900 mb-4 text-center">
               How can I help?
             </h1>
-            <p className="text-xl text-gray-800 text-center mb-12 max-w-md">
+            <p className="text-xl text-gray-800 text-center mb-6 max-w-md">
               Ask questions about campus resources, dorm policies, and residential life
             </p>
+
+            {/* Location Input */}
+            <div className="flex items-center gap-2 mb-8 w-full max-w-sm">
+              <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
+              <input
+                type="text"
+                value={userLocation}
+                onChange={(e) => { setUserLocation(e.target.value); setLocationSet(false); }}
+                onBlur={() => { if (userLocation.trim()) setLocationSet(true); }}
+                onKeyDown={(e) => { if (e.key === 'Enter' && userLocation.trim()) setLocationSet(true); }}
+                placeholder="Your dorm (e.g. Creswell Hall)..."
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-red-700 text-gray-900 placeholder:text-gray-400"
+              />
+              {locationSet && <span className="text-xs text-green-600 font-medium">✓ Set</span>}
+            </div>
 
             {/* Quick Questions */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl">
@@ -146,13 +168,6 @@ export function ChatComponent() {
                   <p className="text-gray-800 group-hover:text-red-700 font-medium">{question}</p>
                 </button>
               ))}
-
-                        {/* Emergency Banner on Landing */}
-                        {showEmergencyBanner && (
-                          <div className="w-full max-w-4xl mt-12">
-                            <EmergencyBanner onClose={() => setShowEmergencyBanner(false)} onRequestSchedule={() => setShowScheduleModal(true)} />
-                          </div>
-                        )}
             </div>
           </div>
         ) : (
