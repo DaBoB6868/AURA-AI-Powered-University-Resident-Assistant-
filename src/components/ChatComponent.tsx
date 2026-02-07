@@ -65,7 +65,15 @@ export function ChatComponent() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to get response');
+        let errorDetail = '';
+        try {
+          const errorData = await response.json();
+          errorDetail = errorData.error || JSON.stringify(errorData);
+        } catch {
+          errorDetail = await response.text();
+        }
+        console.error(`API Error (${response.status}):`, errorDetail);
+        throw new Error(`Failed to get response: ${response.status} - ${errorDetail}`);
       }
 
       const data = await response.json();
