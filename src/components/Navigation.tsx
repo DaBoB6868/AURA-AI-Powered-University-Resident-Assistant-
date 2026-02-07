@@ -8,10 +8,10 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const resourceLinks = [
-    { label: 'UGA Campus Resources', href: '#' },
-    { label: 'Housing Portal', href: '#' },
-    { label: 'Resident Handbook', href: '#' },
-    { label: 'Campus Safety', href: '#' },
+    { label: 'Campus Involvement Network', href: 'https://uga.campuslabs.com/engage/' },
+    { label: 'UGA Campus Resources', href: '/resources' },
+    { label: 'Resident Handbook', href: 'https://housing.uga.edu/sa_docs/resources/community_guide.pdf' },
+    { label: 'Maintenance Requests', href: 'https://workrequest.housing.uga.edu/' },
   ];
 
   return (
@@ -33,6 +33,8 @@ export function Navigation() {
                 <a
                   key={link.label}
                   href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="px-3 py-2 rounded-md text-sm font-medium hover:bg-red-600 transition-colors"
                 >
                   {link.label}
@@ -65,6 +67,8 @@ export function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="block px-3 py-2 rounded-md text-base font-medium hover:bg-red-600 transition-colors"
               >
                 {link.label}
