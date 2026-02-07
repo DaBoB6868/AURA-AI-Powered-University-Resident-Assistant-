@@ -1,0 +1,182 @@
+[
+  {
+    "id": "ra-001",
+    "name": "Bob Hicks",
+    "dorm": "Boggs Hall",
+    "community": "Hill Community",
+    "floor": 4,
+    "email": "slh56040@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-002",
+    "name": "Sarah Johnson",
+    "dorm": "Boggs Hall",
+    "community": "Hill Community",
+    "floor": 3,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-003",
+    "name": "Marcus Williams",
+    "dorm": "Boggs Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-004",
+    "name": "Jessica Chen",
+    "dorm": "Church Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-005",
+    "name": "David Martinez",
+    "dorm": "Church Hall",
+    "community": "Hill Community",
+    "floor": 3,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-006",
+    "name": "Emily Thompson",
+    "dorm": "Hill Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-007",
+    "name": "Chris Anderson",
+    "dorm": "Lipscomb Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-008",
+    "name": "Ashley Davis",
+    "dorm": "Mary Lyndon Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-009",
+    "name": "Tyler Brown",
+    "dorm": "Mell Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-010",
+    "name": "Megan Wilson",
+    "dorm": "Morris Hall",
+    "community": "Hill Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-011",
+    "name": "James Lee",
+    "dorm": "Creswell Hall",
+    "community": "Creswell Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-012",
+    "name": "Lauren Taylor",
+    "dorm": "Russell Hall",
+    "community": "Creswell Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-013",
+    "name": "Nathan Park",
+    "dorm": "Myers Hall",
+    "community": "Myers Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-014",
+    "name": "Sophia Nguyen",
+    "dorm": "Brumby Hall",
+    "community": "Brumby Community",
+    "floor": 3,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-015",
+    "name": "Daniel Kim",
+    "dorm": "Reed Hall",
+    "community": "Reed Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-016",
+    "name": "Rachel Green",
+    "dorm": "Oglethorpe House",
+    "community": "Oglethorpe Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-017",
+    "name": "Kevin Robinson",
+    "dorm": "Rutherford Hall",
+    "community": "Rutherford Community",
+    "floor": 3,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-018",
+    "name": "Amanda Clark",
+    "dorm": "Vandiver Hall",
+    "community": "ECV Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-019",
+    "name": "Ryan Mitchell",
+    "dorm": "Brown Hall",
+    "community": "Brown Community",
+    "floor": 2,
+    "email": "placeholder@uga.edu",
+    "available": true
+  },
+  {
+    "id": "ra-020",
+    "name": "Hannah White",
+    "dorm": "Highland",
+    "community": "Highland Community",
+    "floor": 1,
+    "email": "placeholder@uga.edu",
+    "available": true
+  }
+]

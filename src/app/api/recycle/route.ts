@@ -1,26 +1,58 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// ── Step 1: Use Gemini to identify the object in the image ──
-async function identifyWithGemini(imageBase64: string, mimeType: string): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error('GEMINI_API_KEY not set');
+// ── Step 1: Use OpenRouter vision model to identify objects in the image ──
+async function identifyObjects(imageBase64: string, mimeType: string): Promise<string> {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error('OPENAI_API_KEY not set');
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+  // Try Gemini via OpenRouter first (free vision), fallback to GPT-4o-mini
+  const models = ['google/gemini-2.0-flash-exp:free', 'openai/gpt-4o-mini'];
+  let lastError = '';
 
-  const result = await model.generateContent([
-    {
-      inlineData: {
-        data: imageBase64,
-        mimeType,
-      },
-    },
-    'Identify every object you can see in this image. List them as a comma-separated list. Be specific (e.g. "plastic water bottle", "banana peel", "cardboard box"). Only list the objects, nothing else.',
-  ]);
+  for (const model of models) {
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            {
+              role: 'user',
+              content: [
+                {
+                  type: 'image_url',
+                  image_url: { url: `data:${mimeType};base64,${imageBase64}` },
+                },
+                {
+                  type: 'text',
+                  text: 'Identify every object you can see in this image. List them as a comma-separated list. Be specific (e.g. "plastic water bottle", "banana peel", "cardboard box"). Only list the objects, nothing else.',
+                },
+              ],
+            },
+          ],
+          temperature: 0.3,
+          max_tokens: 300,
+        }),
+      });
 
-  const text = result.response.text();
-  return text;
+      if (!res.ok) {
+        lastError = `${model}: ${res.status} ${await res.text()}`;
+        continue;
+      }
+
+      const data = await res.json();
+      const text = data.choices?.[0]?.message?.content || '';
+      if (text) return text;
+    } catch (err: any) {
+      lastError = `${model}: ${err?.message || err}`;
+    }
+  }
+
+  throw new Error(`All vision models failed. Last error: ${lastError}`);
 }
 
 // ── Step 2: Use OpenRouter (GPT-3.5-turbo) to classify the items ──
@@ -107,13 +139,13 @@ export async function POST(req: NextRequest) {
     const base64 = Buffer.from(arrayBuffer).toString('base64');
     const mimeType = file.type || 'image/jpeg';
 
-    // Step 1: Gemini identifies what's in the image
+    // Step 1: Vision model identifies what's in the image
     let itemDescription: string;
     try {
-      itemDescription = await identifyWithGemini(base64, mimeType);
+      itemDescription = await identifyObjects(base64, mimeType);
     } catch (err: any) {
-      console.error('Gemini vision error:', err?.message || err);
-      return NextResponse.json({ error: 'Could not identify objects. Check GEMINI_API_KEY.' }, { status: 500 });
+      console.error('Vision identification error:', err?.message || err);
+      return NextResponse.json({ error: 'Could not identify objects. ' + (err?.message || '') }, { status: 500 });
     }
 
     // Step 2: OpenRouter classifies recycling/compost/trash
