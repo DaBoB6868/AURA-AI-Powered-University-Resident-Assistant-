@@ -21,8 +21,13 @@ export async function generateRAGResponse(
   conversationHistory: Message[] = []
 ): Promise<{ response: string; sources: string[] }> {
   try {
-    // Search for relevant documents
-    const relevantDocs = await vectorStore.search(userQuery, 5);
+    // Search for relevant documents with confidence scores
+    const searchResults = await vectorStore.searchWithScores(userQuery, 5);
+    const relevantDocs = searchResults.map((r) => r.doc);
+    const avgConfidence =
+      searchResults.length > 0
+        ? searchResults.reduce((sum, r) => sum + r.score, 0) / searchResults.length
+        : 0;
 
     // Build context from retrieved documents
     const context = relevantDocs
@@ -32,10 +37,16 @@ export async function generateRAGResponse(
       )
       .join('\n\n---\n\n');
 
+    // Adjust prompt based on confidence in PDF matches
+    const confidenceNote =
+      avgConfidence < 0.3
+        ? 'If the community guides do not contain enough information, supplement with general knowledge of common dorm policies and best practices.'
+        : 'Focus primarily on the provided community guides for accurate information.';
+
     // Build the system prompt
     const systemPrompt = `You are a helpful Dorm RA (Resident Assistant) chatbot. You help students with questions about dorm policies, community guidelines, and residential life. 
 
-Use the provided community guides and policies to answer questions accurately. If you don't have information in the provided guides, say so and offer general helpful advice.
+${confidenceNote}
 
 Be friendly, supportive, and professional. Keep responses concise and helpful.`;
 
@@ -49,7 +60,7 @@ Be friendly, supportive, and professional. Keep responses concise and helpful.`;
     // Add current query
     messages.push(
       new HumanMessage(
-        `Based on the following community guides and policies, please answer this question: "${userQuery}"\n\nCommunity Information:\n${context || 'No relevant information found in documents.'}`
+        `Please answer this question: "${userQuery}"\n\nCommunity Information from guides:\n${context || 'No specific information found in the community guides.'}`
       )
     );
 
@@ -73,7 +84,12 @@ export async function generateStreamingRAGResponse(
   userQuery: string,
   conversationHistory: Message[] = []
 ) {
-  const relevantDocs = await vectorStore.search(userQuery, 5);
+  const searchResults = await vectorStore.searchWithScores(userQuery, 5);
+  const relevantDocs = searchResults.map((r) => r.doc);
+  const avgConfidence =
+    searchResults.length > 0
+      ? searchResults.reduce((sum, r) => sum + r.score, 0) / searchResults.length
+      : 0;
 
   const context = relevantDocs
     .map(
@@ -82,9 +98,14 @@ export async function generateStreamingRAGResponse(
     )
     .join('\n\n---\n\n');
 
+  const confidenceNote =
+    avgConfidence < 0.3
+      ? 'If the community guides do not contain enough information, supplement with general knowledge of common dorm policies and best practices.'
+      : 'Focus primarily on the provided community guides for accurate information.';
+
   const systemPrompt = `You are a helpful Dorm RA (Resident Assistant) chatbot. You help students with questions about dorm policies, community guidelines, and residential life.
 
-Use the provided community guides and policies to answer questions accurately. If you don't have information in the provided guides, say so and offer general helpful advice.
+${confidenceNote}
 
 Be friendly, supportive, and professional. Keep responses concise and helpful.`;
 
@@ -98,7 +119,7 @@ Be friendly, supportive, and professional. Keep responses concise and helpful.`;
   // Add current query
   messages.push(
     new HumanMessage(
-      `Based on the following community guides and policies, please answer this question: "${userQuery}"\n\nCommunity Information:\n${context || 'No relevant information found in documents.'}`
+      `Please answer this question: "${userQuery}"\n\nCommunity Information from guides:\n${context || 'No specific information found in the community guides.'}`
     )
   );
 

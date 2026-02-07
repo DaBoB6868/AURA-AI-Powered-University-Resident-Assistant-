@@ -62,6 +62,27 @@ class VectorStore {
     }
   }
 
+  async searchWithScores(
+    query: string,
+    topK: number = 5
+  ): Promise<{ doc: StoredDocument; score: number }[]> {
+    try {
+      const queryEmbedding = await generateSingleEmbedding(query);
+
+      const scores = this.documents.map((doc) => ({
+        doc,
+        score: calculateCosineSimilarity(queryEmbedding, doc.embedding),
+      }));
+
+      return scores
+        .sort((a, b) => b.score - a.score)
+        .slice(0, topK);
+    } catch (error) {
+      console.error('Error searching documents:', error);
+      throw error;
+    }
+  }
+
   getAllDocuments(): StoredDocument[] {
     return this.documents;
   }

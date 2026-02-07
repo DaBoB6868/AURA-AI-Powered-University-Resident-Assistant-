@@ -1,13 +1,38 @@
 import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
 
-// ---- Local TF-IDF-style embeddings (no API needed) ----
+// ---- Local TF-IDF-style embeddings with stemming (no API needed) ----
+
+// Simple stemming for common word endings
+function stem(word: string): string {
+  word = word.toLowerCase();
+  if (word.endsWith('ing')) return word.slice(0, -3);
+  if (word.endsWith('ed')) return word.slice(0, -2);
+  if (word.endsWith('tion')) return word.slice(0, -4);
+  if (word.endsWith('ly')) return word.slice(0, -2);
+  if (word.endsWith('ies')) return word.slice(0, -3) + 'i';
+  if (word.endsWith('es')) return word.slice(0, -2);
+  if (word.endsWith('s') && !word.endsWith('ss')) return word.slice(0, -1);
+  return word;
+}
+
+// Synonym mapping for common dorm-related terms
+const synonyms: Record<string, string[]> = {
+  quiet: ['silent', 'noise', 'sound'],
+  hours: ['time', 'schedule', 'timing', 'when'],
+  policy: ['rule', 'regulation', 'guideline'],
+  visitor: ['guest', 'friend', 'family'],
+  guest: ['visitor', 'friend'],
+  dorm: ['residence', 'dormitory', 'room', 'hall'],
+  check: ['check-in', 'checkin', 'entrance'],
+};
 
 function tokenize(text: string): string[] {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, ' ')
     .split(/\s+/)
-    .filter((w) => w.length > 1);
+    .filter((w) => w.length > 1)
+    .map(stem);
 }
 
 // Build a simple bag-of-words vector from a shared vocabulary
@@ -24,9 +49,17 @@ function ensureVocab(tokens: string[]) {
 }
 
 function toVector(tokens: string[]): number[] {
-  ensureVocab(tokens);
+  // Expand tokens with synonyms
+  const expandedTokens = [...tokens];
+  for (const token of tokens) {
+    if (synonyms[token]) {
+      expandedTokens.push(...synonyms[token].map(stem));
+    }
+  }
+  
+  ensureVocab(expandedTokens);
   const vec = new Array(vocabulary.length).fill(0);
-  for (const t of tokens) {
+  for (const t of expandedTokens) {
     const idx = vocabIndex.get(t);
     if (idx !== undefined) vec[idx] += 1;
   }
