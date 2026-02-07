@@ -1,10 +1,10 @@
-import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
+import { ChatOpenAI } from '@langchain/openai';
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
 import { vectorStore } from './vector-store';
 
-const chatModel = new ChatGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_API_KEY,
-  modelName: 'gemini-pro',
+const chatModel = new ChatOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  modelName: 'gpt-3.5-turbo',
   temperature: 0.7,
 });
 
