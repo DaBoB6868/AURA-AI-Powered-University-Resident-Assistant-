@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { Leaf, Recycle, Camera, Upload, Loader } from "lucide-react";
 
 export function RecycleChecker() {
   const [file, setFile] = useState<File | null>(null);
@@ -21,12 +22,7 @@ export function RecycleChecker() {
     try {
       const fd = new FormData();
       fd.append("image", file);
-
-      const res = await fetch("/api/recycle", {
-        method: "POST",
-        body: fd,
-      });
-
+      const res = await fetch("/api/recycle", { method: "POST", body: fd });
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const json = await res.json();
       setResult(json);
@@ -39,13 +35,12 @@ export function RecycleChecker() {
 
   async function startCamera() {
     setError(null);
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      setError('Camera not supported on this device.');
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setError("Camera not supported on this device.");
       return;
     }
-
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         await videoRef.current.play();
@@ -59,95 +54,115 @@ export function RecycleChecker() {
   function stopCamera() {
     setCameraActive(false);
     const stream = videoRef.current?.srcObject as MediaStream | null;
-    if (stream) {
-      stream.getTracks().forEach((t) => t.stop());
-    }
+    stream?.getTracks().forEach((t) => t.stop());
     if (videoRef.current) videoRef.current.srcObject = null;
   }
 
   function capturePhoto() {
     if (!videoRef.current) return;
     const video = videoRef.current;
-    const canvas = canvasRef.current || document.createElement('canvas');
+    const canvas = canvasRef.current || document.createElement("canvas");
     canvas.width = video.videoWidth || 1280;
     canvas.height = video.videoHeight || 720;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     canvas.toBlob((blob) => {
       if (!blob) return;
-      const photoFile = new File([blob], `capture-${Date.now()}.jpg`, { type: blob.type });
-      setFile(photoFile);
+      setFile(new File([blob], `capture-${Date.now()}.jpg`, { type: blob.type }));
       stopCamera();
-    }, 'image/jpeg');
+    }, "image/jpeg");
   }
 
   return (
-    <div className="w-full p-4 bg-slate-50 rounded-md shadow-sm">
-      <h3 className="text-lg font-semibold mb-2">Sustainability Checker</h3>
-      <p className="text-sm text-slate-800 mb-3">Take or upload a photo to check if an item is recyclable or compostable.</p>
-
-      <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-2 items-stretch">
-        <div className="flex-1">
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-            className="block w-full text-sm"
-          />
+    <div className="w-full bg-gradient-to-b from-green-50 to-white rounded-xl shadow-md border border-green-100 overflow-hidden">
+      {/* Header with logos */}
+      <div className="bg-green-700 text-white px-4 py-5 text-center">
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <Recycle className="w-8 h-8" />
+          <Leaf className="w-7 h-7" />
         </div>
+        <h3 className="text-xl font-bold">♻️ Recycle or Compost?</h3>
+        <p className="text-green-100 text-sm mt-1">Snap a photo and we&apos;ll tell you what to do with it!</p>
+      </div>
 
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => (cameraActive ? stopCamera() : startCamera())}
-            className="px-3 py-2 bg-green-600 text-white rounded disabled:opacity-50 text-sm"
-          >
-            {cameraActive ? 'Stop Camera' : 'Use Camera'}
-          </button>
+      {/* Content */}
+      <div className="p-4">
+        <form onSubmit={onSubmit} className="space-y-3">
+          {/* File / camera upload */}
+          <label className="flex items-center justify-center gap-2 w-full px-4 py-3 border-2 border-dashed border-green-300 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-colors">
+            <Upload className="w-5 h-5 text-green-600" />
+            <span className="text-sm text-gray-800 font-medium">
+              {file ? file.name : "Choose or take a photo"}
+            </span>
+            <input
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
+              className="hidden"
+            />
+          </label>
 
-          <button
-            type="submit"
-            disabled={!file || loading}
-            className="px-3 py-2 bg-blue-600 text-white rounded disabled:opacity-50 text-sm"
-          >
-            {loading ? 'Checking…' : 'Check'}
-          </button>
-        </div>
-      </form>
-
-      {cameraActive && (
-        <div className="mt-3">
-          <video ref={videoRef} className="w-full rounded-md border" playsInline />
-          <div className="flex gap-2 mt-2">
-            <button onClick={capturePhoto} className="flex-1 px-3 py-2 bg-indigo-600 text-white rounded">Capture</button>
-            <button onClick={stopCamera} className="flex-1 px-3 py-2 bg-gray-300 text-gray-800 rounded">Cancel</button>
+          {/* Action buttons */}
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => (cameraActive ? stopCamera() : startCamera())}
+              className="flex-1 flex items-center justify-center gap-1 px-3 py-2.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+            >
+              <Camera className="w-4 h-4" />
+              {cameraActive ? "Stop" : "Camera"}
+            </button>
+            <button
+              type="submit"
+              disabled={!file || loading}
+              className="flex-1 flex items-center justify-center gap-1 px-3 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {loading ? <Loader className="w-4 h-4 animate-spin" /> : <Recycle className="w-4 h-4" />}
+              {loading ? "Checking…" : "Check It"}
+            </button>
           </div>
-          <canvas ref={canvasRef} className="hidden" />
-        </div>
-      )}
+        </form>
 
-      {error && <div className="text-red-600 mt-2">{error}</div>}
-
-      {result && (
-        <div className="mt-3 text-sm">
-          <div><strong>Classification:</strong> {result.classification}</div>
-          {result.labels && (
-            <div className="mt-2">
-              <strong>Labels:</strong>
-              <ul className="list-disc ml-5 mt-1">
-                {result.labels.map((l: string) => (
-                  <li key={l}>{l}</li>
-                ))}
-              </ul>
+        {/* Camera viewfinder */}
+        {cameraActive && (
+          <div className="mt-3">
+            <video ref={videoRef} className="w-full rounded-lg border-2 border-green-200" playsInline />
+            <div className="flex gap-2 mt-2">
+              <button onClick={capturePhoto} className="flex-1 px-3 py-2 bg-green-700 text-white rounded-lg font-medium">📸 Capture</button>
+              <button onClick={stopCamera} className="flex-1 px-3 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium">Cancel</button>
             </div>
-          )}
-          {result.tips && (
-            <div className="mt-2"><strong>Tips:</strong> {result.tips}</div>
-          )}
-        </div>
-      )}
+            <canvas ref={canvasRef} className="hidden" />
+          </div>
+        )}
+
+        {/* Error */}
+        {error && <div className="text-red-600 text-sm mt-3 bg-red-50 p-2 rounded-lg">{error}</div>}
+
+        {/* Results */}
+        {result && (
+          <div className="mt-3 bg-white border border-green-200 rounded-lg p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-2xl">{result.classification?.toLowerCase().includes('recycle') ? '♻️' : result.classification?.toLowerCase().includes('compost') ? '🌱' : '🗑️'}</span>
+              <span className="font-bold text-gray-900 text-lg">{result.classification}</span>
+            </div>
+            {result.labels && (
+              <div className="mt-2">
+                <p className="text-xs font-semibold text-gray-700 mb-1">Detected:</p>
+                <div className="flex flex-wrap gap-1">
+                  {result.labels.map((l: string) => (
+                    <span key={l} className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">{l}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {result.tips && (
+              <p className="mt-2 text-sm text-gray-700 bg-green-50 p-2 rounded">{result.tips}</p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

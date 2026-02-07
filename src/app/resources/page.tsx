@@ -7,7 +7,8 @@ interface CampusResource {
   id: string;
   name: string;
   description: string;
-  image: string;
+  emoji: string;
+  color: string;
   location: string;
   phone?: string;
   website?: string;
@@ -23,7 +24,8 @@ export default function ResourcesPage() {
       id: '1',
       name: 'Tate Student Center',
       description: 'Multipurpose student center with dining, meeting spaces, and recreational facilities.',
-      image: '/images/resources/facilities.svg',
+      emoji: '🏛️',
+      color: 'bg-red-700',
       location: 'Downtown Campus',
       phone: '(706) 542-9000',
       website: 'https://tate.uga.edu',
@@ -32,19 +34,21 @@ export default function ResourcesPage() {
     {
       id: '2',
       name: 'Ramsey Student Center',
-      description: 'Student hub featuring dining options, meeting rooms, and student organization spaces.',
-      image: '/images/resources/facilities.svg',
-      location: 'North Campus',
-      phone: '(706) 542-9100',
-      website: 'https://ramsey.uga.edu',
+      description: 'Fitness center with pool, courts, weight rooms, and group fitness classes.',
+      emoji: '🏋️',
+      color: 'bg-orange-600',
+      location: 'Smith Street',
+      phone: '(706) 542-5060',
+      website: 'https://recsports.uga.edu',
       category: 'Facilities',
     },
     {
       id: '3',
       name: 'University Health Center',
-      description: 'Comprehensive healthcare services for students including medical, mental health, and wellness.',
-      image: '/images/resources/health.svg',
-      location: 'Downtown Campus',
+      description: 'Comprehensive healthcare services including medical, pharmacy, and lab.',
+      emoji: '🏥',
+      color: 'bg-blue-600',
+      location: 'River Road',
       phone: '(706) 542-1441',
       website: 'https://www.uhs.uga.edu',
       category: 'Health',
@@ -52,29 +56,32 @@ export default function ResourcesPage() {
     {
       id: '4',
       name: 'Zell B. Miller Learning Center',
-      description: 'Tutoring, writing support, and academic skills development for all UGA students.',
-      image: '/images/resources/academic.svg',
-      location: 'Downtown Campus',
+      description: '24-hour study facility with group rooms, auditoriums, and Jittery Joe\'s coffee.',
+      emoji: '📚',
+      color: 'bg-amber-600',
+      location: 'South Campus',
       phone: '(706) 542-8105',
-      website: 'https://irc.uga.edu',
+      website: 'https://mlc.uga.edu',
       category: 'Academic',
     },
     {
       id: '5',
-      name: 'Counseling and Psychological Services',
-      description: 'Mental health support including individual counseling, group therapy, and crisis services.',
-      image: '/images/resources/health.svg',
-      location: 'Downtown Campus',
+      name: 'Counseling & Psych Services (CAPS)',
+      description: 'Free counseling, crisis support, and mental health resources for students.',
+      emoji: '🧠',
+      color: 'bg-purple-600',
+      location: 'Health Center, 3rd Floor',
       phone: '(706) 542-2273',
       website: 'https://www.caps.uga.edu',
       category: 'Health',
     },
     {
       id: '6',
-      name: 'Office of Campus Safety',
-      description: 'Campus police, emergency response, and safety services for the UGA community.',
-      image: '/images/resources/safety.svg',
-      location: 'Multiple Locations',
+      name: 'UGA Police Department',
+      description: 'Campus police, UGASafe app, LiveSafe escorts, and 24/7 emergency response.',
+      emoji: '🚔',
+      color: 'bg-slate-700',
+      location: 'Riverbend Road',
       phone: '(706) 542-2200',
       website: 'https://police.uga.edu',
       category: 'Safety',
@@ -82,82 +89,90 @@ export default function ResourcesPage() {
     {
       id: '7',
       name: 'Career Center',
-      description: 'Job search assistance, resume building, interview prep, and networking events.',
-      image: '/images/resources/career.svg',
-      location: 'Downtown Campus',
-      phone: '(706) 542-8406',
+      description: 'Career coaching, internship search, resume reviews, mock interviews, and job fairs.',
+      emoji: '💼',
+      color: 'bg-emerald-600',
+      location: 'Clark Howell Hall',
+      phone: '(706) 542-3375',
       website: 'https://career.uga.edu',
       category: 'Career',
     },
     {
       id: '8',
-      name: 'International Student Office',
-      description: 'Support services for international students including visa guidance and cultural events.',
-      image: '/images/resources/student-services.svg',
-      location: 'Downtown Campus',
+      name: 'International Student Life',
+      description: 'Visa advising, cultural events, and support for international Bulldogs.',
+      emoji: '🌍',
+      color: 'bg-teal-600',
+      location: 'Memorial Hall',
       phone: '(706) 542-6820',
-      website: 'https://iso.uga.edu',
+      website: 'https://isl.uga.edu',
       category: 'Student Services',
     },
     {
       id: '9',
       name: 'Writing Center',
-      description: 'Free peer-tutoring for writing assignments across all disciplines and skill levels.',
-      image: '/images/resources/academic.svg',
-      location: 'Milledge Avenue',
-      phone: '(706) 542-8844',
+      description: 'Free peer tutoring for essays, research papers, and any writing project.',
+      emoji: '✍️',
+      color: 'bg-indigo-600',
+      location: 'Park Hall',
+      phone: '(706) 542-0386',
       website: 'https://writingcenter.uga.edu',
       category: 'Academic',
     },
     {
       id: '10',
-      name: 'Math Tutoring Center',
-      description: 'Specialized tutoring for mathematics courses including calculus, algebra, and statistics.',
-      image: '/images/resources/academic.svg',
-      location: 'Boyd Graduate Studies',
-      phone: '(706) 542-4114',
-      website: 'https://math.uga.edu',
+      name: 'Division of Academic Enhancement',
+      description: 'Tutoring for math, science, and study skills plus Supplemental Instruction.',
+      emoji: '🎓',
+      color: 'bg-cyan-600',
+      location: 'Milledge Hall',
+      phone: '(706) 542-7575',
+      website: 'https://dae.uga.edu',
       category: 'Academic',
     },
     {
       id: '11',
-      name: 'Science Learning Center',
-      description: 'Tutoring support for biology, chemistry, physics, and other science disciplines.',
-      image: '/images/resources/academic.svg',
-      location: 'Science Building',
-      phone: '(706) 542-5400',
-      website: 'https://sciencelearning.uga.edu',
+      name: 'Main Library',
+      description: 'Research databases, study rooms, interlibrary loans, and Special Collections.',
+      emoji: '📖',
+      color: 'bg-yellow-600',
+      location: 'North Campus',
+      phone: '(706) 542-3251',
+      website: 'https://www.libs.uga.edu',
       category: 'Academic',
     },
     {
       id: '12',
-      name: 'Language Learning Lab',
-      description: 'Tutoring and resources for foreign language studies and conversational practice.',
-      image: '/images/resources/academic.svg',
-      location: 'Romance Languages Building',
-      phone: '(706) 542-3475',
-      website: 'https://languages.uga.edu',
-      category: 'Academic',
-    },
-    {
-      id: '13',
       name: 'Disability Resource Center',
-      description: 'Accommodations and support services for students with disabilities.',
-      image: '/images/resources/student-services.svg',
-      location: 'Downtown Campus',
+      description: 'Accommodations, assistive technology, and academic support for students with disabilities.',
+      emoji: '♿',
+      color: 'bg-sky-600',
+      location: 'Clark Howell Hall',
       phone: '(706) 542-8719',
       website: 'https://drc.uga.edu',
       category: 'Student Services',
     },
     {
-      id: '14',
-      name: 'Office of Diversity and Inclusion',
-      description: 'Resources and programs supporting underrepresented students and promoting campus diversity.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-      location: 'Downtown Campus',
-      phone: '(706) 542-3344',
-      website: 'https://diversity.uga.edu',
+      id: '13',
+      name: 'Office of Student Conduct',
+      description: 'Student rights, academic honesty policies, and conflict resolution.',
+      emoji: '⚖️',
+      color: 'bg-rose-600',
+      location: 'Tate Center',
+      phone: '(706) 542-1131',
+      website: 'https://conduct.uga.edu',
       category: 'Student Services',
+    },
+    {
+      id: '14',
+      name: 'UGA Dining Services',
+      description: 'Five dining halls, meal plan info, allergen menus, and Bulldog Bucks.',
+      emoji: '🍽️',
+      color: 'bg-red-600',
+      location: 'Multiple Locations',
+      phone: '(706) 542-9663',
+      website: 'https://dining.uga.edu',
+      category: 'Facilities',
     },
   ];
 
@@ -195,7 +210,7 @@ export default function ResourcesPage() {
                       placeholder="Search resources by name, category, or location..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-700 transition-colors"
+                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-700 transition-colors text-gray-900 placeholder:text-gray-500"
                     />
                     {searchTerm && (
                       <button
@@ -222,12 +237,10 @@ export default function ResourcesPage() {
                 key={resource.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
-                {/* Image */}
-                <img
-                  src={resource.image}
-                  alt={resource.name}
-                  className="w-full h-48 object-cover"
-                />
+                {/* Category Header */}
+                <div className={`${resource.color} h-32 flex items-center justify-center`}>
+                  <span className="text-5xl">{resource.emoji}</span>
+                </div>
 
                 {/* Content */}
                 <div className="p-6">

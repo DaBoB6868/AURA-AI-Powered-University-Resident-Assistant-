@@ -240,7 +240,7 @@ export function ChatComponent() {
             onChange={(e) => setInput(e.target.value)}
             disabled={loading}
             placeholder="Ask a question..."
-            className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-700 disabled:bg-gray-100 transition-colors"
+            className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-700 disabled:bg-gray-100 transition-colors text-gray-900 placeholder:text-gray-500"
           />
           <button
             type="submit"

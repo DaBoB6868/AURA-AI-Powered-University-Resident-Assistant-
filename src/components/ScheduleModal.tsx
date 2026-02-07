@@ -45,9 +45,9 @@ export function ScheduleModal({ open, onClose, frontDeskName }: ScheduleModalPro
         <h3 className="text-lg font-bold mb-2">Schedule time with an RA</h3>
         <p className="text-sm text-gray-800 mb-4">Front desk: {frontDeskName ?? 'Unspecified'}</p>
 
-        <input className="w-full mb-2 p-2 border rounded" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="w-full mb-2 p-2 border rounded" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input className="w-full mb-4 p-2 border rounded" placeholder="Preferred time (e.g., 2026-02-07 14:00)" value={when} onChange={(e) => setWhen(e.target.value)} />
+        <input className="w-full mb-2 p-2 border rounded text-gray-900 placeholder:text-gray-500" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="w-full mb-2 p-2 border rounded text-gray-900 placeholder:text-gray-500" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="w-full mb-4 p-2 border rounded text-gray-900 placeholder:text-gray-500" placeholder="Preferred time (e.g., 2026-02-07 14:00)" value={when} onChange={(e) => setWhen(e.target.value)} />
 
         <div className="flex items-center justify-end gap-2">
           <button onClick={onClose} className="px-4 py-2 rounded border">Cancel</button>

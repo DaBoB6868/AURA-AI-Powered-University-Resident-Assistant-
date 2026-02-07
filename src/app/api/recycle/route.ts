@@ -41,7 +41,7 @@ async function callVision(imageBuffer: Buffer) {
     const [result] = await client.labelDetection({ image: { content: imageBuffer } });
     const labels = (result.labelAnnotations || []).map((a: any) => a.description || a.mid).filter(Boolean);
     return labels;
-  } catch (err) {
+  } catch (err: any) {
     console.warn('Vision client failed or not configured:', err?.message || err);
     // fallback: empty labels
     return [];

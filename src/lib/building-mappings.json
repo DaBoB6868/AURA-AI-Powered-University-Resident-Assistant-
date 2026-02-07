@@ -1,15 +1,61 @@
 {
   "boggs": "Hill Community Front Desk",
   "boggs hall": "Hill Community Front Desk",
+  "church": "Hill Community Front Desk",
+  "church hall": "Hill Community Front Desk",
   "hill": "Hill Community Front Desk",
+  "hill hall": "Hill Community Front Desk",
+  "mell": "Hill Community Front Desk",
   "mell hall": "Hill Community Front Desk",
+  "morris": "Hill Community Front Desk",
   "morris hall": "Hill Community Front Desk",
-  "creswell": "Creswell Front Desk",
-  "creswell hall": "Creswell Front Desk",
-  "myers": "Myers Front Desk",
-  "myers hall": "Myers Front Desk",
-  "reed": "Reed Front Desk",
-  "payne": "Payne Front Desk",
-  "russell": "Russell Front Desk",
-  "brumby": "Brumby Front Desk"
+  "lipscomb": "Hill Community Front Desk",
+  "lipscomb hall": "Hill Community Front Desk",
+  "mary lyndon": "Hill Community Front Desk",
+
+  "creswell": "Creswell Community Front Desk",
+  "creswell hall": "Creswell Community Front Desk",
+  "russell": "Creswell Community Front Desk",
+  "russell hall": "Creswell Community Front Desk",
+
+  "myers": "Myers Community Front Desk",
+  "myers hall": "Myers Community Front Desk",
+  "soule": "Myers Community Front Desk",
+  "soule hall": "Myers Community Front Desk",
+
+  "reed": "Reed Community Front Desk",
+  "reed hall": "Reed Community Front Desk",
+  "payne": "Reed Community Front Desk",
+  "payne hall": "Reed Community Front Desk",
+
+  "brumby": "Brumby Community Front Desk",
+  "brumby hall": "Brumby Community Front Desk",
+
+  "oglethorpe": "Oglethorpe Community Front Desk",
+  "oglethorpe house": "Oglethorpe Community Front Desk",
+
+  "rutherford": "Rutherford Community Front Desk",
+  "rutherford hall": "Rutherford Community Front Desk",
+
+  "busbee": "Busbee Community Front Desk",
+  "busbee hall": "Busbee Community Front Desk",
+
+  "vandiver": "ECV Community Front Desk",
+  "vandiver hall": "ECV Community Front Desk",
+  "rooker": "ECV Community Front Desk",
+  "rooker hall": "ECV Community Front Desk",
+  "mcwhorter": "ECV Community Front Desk",
+  "mcwhorter hall": "ECV Community Front Desk",
+  "ecv": "ECV Community Front Desk",
+
+  "brown": "Brown Community Front Desk",
+  "brown hall": "Brown Community Front Desk",
+
+  "highland": "Highland Community Front Desk",
+
+  "1516": "University Village Front Desk",
+  "university village": "University Village Front Desk",
+
+  "rogers road": "Rogers Road Community Front Desk",
+  "rogers": "Rogers Road Community Front Desk"
 }
