@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dorm RA Bot",
-  description: "Community Guide Assistant - Ask questions about dorm policies",
+  title: "RA Assistant - Dorm Support",
+  description: "Ask questions about campus resources and residential life policies",
 };
 
 // Initialize documents on server startup
