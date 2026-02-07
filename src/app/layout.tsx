@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { initializeDocuments } from "@/lib/initialize-documents";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,11 +16,6 @@ export const metadata: Metadata = {
   title: "RA Assistant - Dorm Support",
   description: "Ask questions about campus resources and residential life policies",
 };
-
-// Initialize documents on server startup
-initializeDocuments().catch((error) => {
-  console.error("Failed to initialize documents:", error);
-});
 
 export default function RootLayout({
   children,

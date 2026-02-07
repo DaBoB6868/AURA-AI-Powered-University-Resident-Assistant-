@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { AlertTriangle, Phone, MapPin, ChevronDown, ChevronUp, Search } from 'lucide-react';
-import BUILDING_MAP from '@/lib/building-mappings.json';
+import BUILDING_DATA from '@/lib/building-mappings.json';
+
+const BUILDING_MAP = BUILDING_DATA.buildingLookup as Record<string, string>;
 
 interface FrontDesk {
   name: string;
@@ -67,9 +69,10 @@ export function EmergencyBanner({ onRequestSchedule }: EmergencyBannerProps) {
   const handleBuildingSearch = () => {
     const name = buildingInput.trim().toLowerCase();
     if (!name) return;
-    const mapped = (BUILDING_MAP as Record<string, string>)[name];
+    const mapped = BUILDING_MAP[name];
     if (mapped) {
-      const desk = FRONT_DESKS.find((d) => d.name === mapped);
+      const deskName = mapped + ' Front Desk';
+      const desk = FRONT_DESKS.find((d) => d.name === deskName);
       if (desk) { setClosestDesk(desk); setFeedback(`✓ ${desk.name}`); setTimeout(() => setFeedback(null), 4000); return; }
     }
     let match = FRONT_DESKS.find((d) => d.buildings.some((b) => b.toLowerCase().includes(name)));

@@ -1,0 +1,1687 @@
+{
+  "document_info": {
+    "title": "COMMUNITY GUIDE 2025-2026",
+    "revision_date": "July 2025",
+    "organization": "University of Georgia",
+    "department": "University Housing",
+    "contact": {
+      "phone": "706-542-1421",
+      "email": "housing@uga.edu"
+    }
+  },
+  "welcome_message": {
+    "from": "Executive Director",
+    "name": "Linda Kasper",
+    "title": "Executive Director for University Housing",
+    "message": "On behalf of all housing staff members, I welcome you to the University of Georgia! University Housing's mission is to provide comfortable, affordable and secure on-campus housing options in residential communities where students' academic success and personal growth are encouraged and supported. Your residence hall will be your home for the year, and we want to partner with you to ensure a focus on safety and belonging for all who live on campus."
+  },
+  "mission_statement": "University Housing provides comfortable, affordable and secure on-campus housing options in residential communities where the academic success and personal growth of residents are encouraged and supported.",
+  "policies": {
+    "non_discrimination_and_anti_harassment": {
+      "description": "The University of Georgia is committed to maintaining a fair and respectful environment for living, work, and study. The university prohibits harassment of or discrimination against any person on the basis of age, color, disability, genetic information, national origin, race, religion, sex, or veteran status.",
+      "applicable_policies": [
+        "Board of Regents Policy 6.6 Non-Discrimination and Anti-Harassment",
+        "Board of Regents Policy 6.7 Sexual Misconduct Policy",
+        "USG Policy to Prohibit Discrimination & Harassment"
+      ],
+      "contact": {
+        "office": "UGA Equal Opportunity Office",
+        "phone": "706-542-7912",
+        "email": "ugaeoo@uga.edu"
+      }
+    },
+    "freedom_of_expression": {
+      "description": "No rights are more highly regarded at the University of Georgia than the First Amendment guarantees of freedom of speech and expression and the right to assemble peaceably.",
+      "contact": {
+        "office": "Office of the Dean of Students",
+        "phone": "706-542-7774"
+      }
+    },
+    "academic_honesty": {
+      "policy_name": "A Culture of Honesty",
+      "website": "https://honesty.uga.edu/Academic-Honesty-Policy/"
+    },
+    "us_census_surveys": {
+      "description": "Residents in University Housing may be selected by the U.S. Census to participate in a variety of surveys. Some surveys are mandatory while others are voluntary.",
+      "verification_url": "https://www.census.gov/staffsearch/"
+    },
+    "access_control": {
+      "requirements": [
+        "Residents must have their UGACard at all times",
+        "Must establish a personal identification number (PIN)",
+        "Access stickers required for communities with desks",
+        "Sharing UGACards and/or PIN information is prohibited",
+        "Tailgating and door propping prohibited"
+      ],
+      "lost_card_replacement": "UGA OneCard Office in the Tate Student Center"
+    },
+    "alcohol_and_other_drugs": {
+      "prohibited_actions": [
+        "Use or possession of alcoholic beverages except as permitted by law",
+        "Providing, distributing, selling or facilitating the use of alcoholic beverages",
+        "Disruptive or disorderly behavior related to alcohol consumption",
+        "Use or possession of narcotics or controlled substances except as permitted by law",
+        "Providing, distributing, selling or facilitating the use of controlled substances"
+      ],
+      "additional_rules": [
+        "Possession of alcohol containers by residents under 21 is prohibited",
+        "Common source containers prohibited in all communities",
+        "Legal age residents may consume alcohol in privacy of room/apartment only",
+        "Open containers not permitted outside individual rooms/units",
+        "No alcohol at organized functions within residential communities"
+      ]
+    },
+    "appliances_and_electronic_devices": {
+      "permitted": [
+        {
+          "item": "Refrigerators",
+          "specifications": "Maximum 4.0 cubic ft., 118 volts, 60 Hz, not more than 1.5 amps or 180 watts"
+        },
+        {
+          "item": "Microwaves",
+          "specifications": "Maximum 1.0 cubic ft. and 700 watts"
+        },
+        {
+          "item": "General appliances",
+          "examples": "Radios, stereos, desk lamps, computers, TVs, electric blankets"
+        },
+        {
+          "item": "Surge protectors",
+          "requirements": "Should be plugged directly into wall"
+        },
+        {
+          "item": "Extension cords",
+          "requirements": "Only one extension cord per appliance, properly grounded if required"
+        }
+      ],
+      "prohibited": [
+        "Appliances with exposed heating elements",
+        "Resident-owned air conditioners",
+        "Space heaters",
+        "Halogen light bulbs",
+        "String lights, LED strip lights, rope lights",
+        "Plug-in air fresheners",
+        "Outside antennas and satellite dishes"
+      ],
+      "recommendations": [
+        "Energy Star appliances",
+        "LED bulbs"
+      ]
+    },
+    "bicycles_and_transportation_devices": {
+      "non_combustion_engine": {
+        "storage": "Bicycle storage facilities, bike racks, or student rooms if not impeding egress",
+        "prohibited_locations": "Hallways, stairwells, kitchens, balconies, walkways, lobbies",
+        "attachment": "Only to approved university bicycle racks"
+      },
+      "electric_and_battery_powered": {
+        "prohibited_inside": true,
+        "prohibited_charging": true,
+        "parking_restriction": "Not near or against buildings or under breezeways",
+        "examples": "E-scooters, e-bikes, hoverboards, Onewheels"
+      },
+      "medical_accommodation": {
+        "contact": "Accessibility and Testing"
+      },
+      "parking_info": "https://tps.uga.edu/"
+    },
+    "cooking_guidelines": {
+      "room_permitted_appliances": [
+        "Sealed-unit coffee makers",
+        "Sealed-unit popcorn poppers",
+        "Microwaves (max 1 cubic foot and 700 watts)"
+      ],
+      "kitchen_only_appliances": [
+        "Air fryers",
+        "Crock pots",
+        "Sealed-unit hot pots",
+        "Toasters",
+        "Toaster ovens"
+      ],
+      "safety_rules": [
+        "Food being prepared must not be left unattended",
+        "All appliances must be turned off before leaving kitchen",
+        "Keep combustible materials away from cooking units",
+        "Clean kitchen upon completion of use",
+        "Do not leave personal items in community kitchens"
+      ]
+    },
+    "decorations": {
+      "general_requirements": [
+        "Alcohol containers may not be used as decorations",
+        "All electrical accessories must carry UL certification",
+        "Extension cords may be used",
+        "No contact paper on university property",
+        "No covering sources of light",
+        "Painter's tape and Command strips appropriate",
+        "Tape, nails, screws, poster mounts not permitted",
+        "No holes in walls except specified buildings",
+        "No stickers on doors, furniture, glass, or university property",
+        "Residents may not paint rooms",
+        "Decorations limited to 10% of hallway wall surface area",
+        "No decorations covering outlets, thermostats, vents, or safety devices",
+        "No decorations hanging outside windows",
+        "No decorations hanging from hallway ceilings",
+        "No blocking vision through door glass",
+        "No modifications to plumbing or electrical fixtures",
+        "No defacing windows or doors"
+      ],
+      "permitted_in_specific_buildings": {
+        "thumbtacks_and_pushpins": [
+          "Black-Diallo-Miller Hall",
+          "Brumby Hall",
+          "Building 1516",
+          "Busbee Hall",
+          "McWhorter Hall",
+          "Rooker Hall",
+          "Russell Hall",
+          "Rutherford Hall",
+          "Vandiver Hall"
+        ]
+      },
+      "seasonal_and_holiday": {
+        "encouraged": "Be inclusive in selecting holiday decorations",
+        "prohibited": [
+          "Live Christmas trees",
+          "Metal Christmas trees",
+          "Artificial snow or difficult-to-remove materials",
+          "Flammable naturally occurring items in common areas"
+        ],
+        "common_area_approval": "Required from community housing staff"
+      }
+    },
+    "disruptive_behavior": {
+      "definition": "Behavior that interferes with normal functioning or unnecessarily impedes rights of students, residents or staff",
+      "examples": [
+        "Behavior compromising safety",
+        "Hall sports",
+        "Water fights",
+        "Pranks",
+        "Disruptive displays/demonstrations",
+        "Lewd or indecent behavior"
+      ],
+      "consequences": "May be charged for property damage"
+    },
+    "door_closures_and_exit_doors": {
+      "automatic_door_closures": [
+        "Black-Diallo-Miller Hall",
+        "Building 1516",
+        "Rutherford Hall"
+      ],
+      "propping_allowed": "Only in buildings with automatic door closures for interior doors",
+      "exterior_doors": "May not be propped at any time",
+      "modifications": "Not permitted"
+    },
+    "essential_oil_diffusers": {
+      "permitted": false,
+      "reasons": [
+        "Skin irritation",
+        "Allergic reactions",
+        "Respiratory symptoms",
+        "Hormone-related symptoms",
+        "Mold formation risk"
+      ],
+      "action_if_found": "Residents asked to unplug, pack, and/or remove device"
+    },
+    "fire_safety": {
+      "equipment": {
+        "all_facilities": [
+          "Building-wide fire detection systems",
+          "Fire alarms linked to UGA Police",
+          "Automatic sprinkler systems",
+          "Smoke detectors"
+        ],
+        "apartments": [
+          "Fire extinguishers"
+        ]
+      },
+      "tampering_prohibited": [
+        "Fire extinguishers",
+        "Smoke detectors",
+        "Fire doors",
+        "Sprinkler heads",
+        "Other safety equipment"
+      ],
+      "fire_hazards_prohibited": [
+        "Burning candles",
+        "Incense",
+        "Open flames",
+        "Propping fire doors (except magnetic closers)",
+        "Combustibles in corridors or stairwells"
+      ],
+      "fire_alarms": {
+        "evacuation_required": true,
+        "assembly_location": "See evacuation chart",
+        "minimum_distance": "300 feet from building",
+        "assistance_contact": "Community office immediately"
+      },
+      "fire_drills": {
+        "frequency": "At least once per semester",
+        "advance_notice": "Minimum 24 hours",
+        "evacuation_required": true
+      }
+    },
+    "firearms_weapons_and_explosives": {
+      "prohibited": true,
+      "georgia_code_reference": "16-11-127.1.2",
+      "prohibited_items": [
+        "Any gun (paintball, BB, potato, pellet, air soft)",
+        "Any device propelling projectiles",
+        "Knives (dirks, bowie, switchblade, ballistic)",
+        "Knives with blades 2+ inches",
+        "Blades (straight-edge razors, razor blades, spring sticks)",
+        "Bludgeoning items (metal knucks, blackjack, bat, club)",
+        "Flailing instruments (nun chahka, nun chuck, nunchaku, shuriken, fighting chain)",
+        "Throwing stars or oriental darts",
+        "Dangerous weapons",
+        "Machine guns",
+        "Sawed-off shotguns or rifles",
+        "Silencers",
+        "Bacteriological weapons",
+        "Biological weapons",
+        "Destructive devices",
+        "Detonators",
+        "Explosives",
+        "Incendiaries",
+        "Over-pressure devices",
+        "Poison gas",
+        "Explosive materials",
+        "Hoax devices",
+        "Replica destructive devices",
+        "Fake bombs"
+      ],
+      "electroshock_weapons": "Prohibited against another person except in self-defense"
+    },
+    "lock_security": {
+      "recommendations": "Always lock room/apartment doors",
+      "key_policy": "Keys only for assigned room/apartment",
+      "hide_away_keys": "Prohibited",
+      "temporary_key": {
+        "duration": "30 minutes",
+        "late_fee": "$30 if not returned within 30 minutes",
+        "lost_after": "24 hours results in lock change"
+      },
+      "lock_change": {
+        "fee": "$120 per key, per incident",
+        "triggers": [
+          "Lost room keys",
+          "Temporary keys not returned within 24 hours"
+        ],
+        "fee_applies": "Even if lost key is later found"
+      },
+      "key_restrictions": [
+        "May not be duplicated",
+        "May not be loaned to unauthorized individuals"
+      ]
+    },
+    "lofts": {
+      "construction_permitted": false,
+      "reason": "University Housing provides adjustable beds",
+      "adjustable_beds": {
+        "positions": 17,
+        "adjustment_method": "Submit work request to housing staff"
+      },
+      "unauthorized_loft": "May incur administrative charge for removal"
+    },
+    "noise_courtesy_and_quiet_hours": {
+      "quiet_hours": {
+        "definition": "Noise audible one door away from source is too loud",
+        "schedule": [
+          {
+            "days": "Sunday",
+            "hours": "10 p.m. – 8 a.m. Monday"
+          },
+          {
+            "days": "Monday",
+            "hours": "10 p.m. – 8 a.m. Tuesday"
+          },
+          {
+            "days": "Tuesday",
+            "hours": "10 p.m. – 8 a.m. Wednesday"
+          },
+          {
+            "days": "Wednesday",
+            "hours": "10 p.m. – 8 a.m. Thursday"
+          },
+          {
+            "days": "Thursday",
+            "hours": "10 p.m. – 8 a.m. Friday"
+          },
+          {
+            "days": "Saturday",
+            "hours": "2 a.m. – 10 a.m."
+          },
+          {
+            "days": "Sunday",
+            "hours": "2 a.m. – 10 a.m."
+          }
+        ],
+        "final_exams": "24-hour quiet hours in effect"
+      },
+      "courtesy_hours": {
+        "definition": "Noise should not be audible three doors away in traditional halls or outside apartment unit",
+        "applies": "When quiet hours are not in effect"
+      },
+      "musical_instruments": {
+        "conditions": [
+          "Only in designated locations (not during quiet hours)",
+          "Only with headphones in rooms"
+        ],
+        "prohibited": "Playing instruments during quiet hours even in designated locations"
+      },
+      "speakers_in_windows": "Prohibited",
+      "community_council": "May vote for more restrictive schedule"
+    },
+    "pets": {
+      "permitted": "Fish in aquariums of 20 gallons or less",
+      "aquarium_requirements": [
+        "Properly maintained",
+        "Meet UL standards",
+        "Maximum one aquarium per resident"
+      ],
+      "service_and_support_animals": "See SERVICES FOR STUDENTS WITH DISABILITIES section"
+    },
+    "recycling_and_trash": {
+      "disposal": "Residents responsible for disposal in dumpsters outside building",
+      "trash_cans": "Included in each unit",
+      "improper_disposal_fee": "Minimum $70",
+      "recycling": {
+        "encouraged": true,
+        "bins_provided": true,
+        "location": "Outside building"
+      },
+      "composting": {
+        "available": "Many residence halls",
+        "program": "UGA Departmental Composting Program",
+        "website": "https://housing.uga.edu/aboutus/sustainability/"
+      }
+    },
+    "research_in_halls": {
+      "approval_required": true,
+      "contact": "Assistant to the Executive Director of University Housing"
+    },
+    "room_apartment_entry": {
+      "university_rights": [
+        "Safety",
+        "Occupancy verification",
+        "Facility improvements",
+        "Routine maintenance",
+        "Well-being checks",
+        "Managing rooms during epidemics/emergencies",
+        "Maintaining quiet environment"
+      ],
+      "student_access": "Only to assigned rooms/apartments",
+      "search_warrant": "Required for suspected criminal violations",
+      "notification": "Staff will attempt to notify residents when possible",
+      "security": "Staff will lock entrance door after leaving"
+    },
+    "room_apartment_furnishings": {
+      "residence_halls": {
+        "provided": [
+          "Bed frame and mattress",
+          "Desk/table/pedestal and chair",
+          "Waste basket and recycling bin",
+          "Ladder chest/dresser/closet/wardrobe",
+          "Ethernet access points"
+        ],
+        "restrictions": [
+          "Cannot remove university furniture",
+          "Cannot move items from public areas",
+          "No storage space for belongings",
+          "Bed risers not allowed"
+        ]
+      },
+      "brown_payne_reed_halls": {
+        "additional": "Microfridge (microwave/refrigerator combination)"
+      },
+      "university_village": {
+        "furnished": "Most apartments unfurnished",
+        "provided": [
+          "Electric stove",
+          "Refrigerator",
+          "Microwave",
+          "Fire extinguisher"
+        ],
+        "some_apartments": [
+          "Dishwasher",
+          "Washer and dryer"
+        ]
+      },
+      "university_village_east": {
+        "bedroom": [
+          "Two adjustable beds",
+          "Two desks",
+          "Two desk chairs",
+          "Two dressers"
+        ],
+        "living_room": [
+          "Sofa",
+          "Armchair",
+          "Two small tables",
+          "Entertainment stand",
+          "Waste basket",
+          "Recycling bin"
+        ],
+        "kitchen": [
+          "Electric stove",
+          "Refrigerator",
+          "Microwave",
+          "Fire extinguisher"
+        ]
+      }
+    },
+    "smoking": {
+      "policy": "Georgia Smoke Free Air Act of 2005",
+      "prohibited": "All forms of Tobacco Products on USG Properties",
+      "advertising_prohibited": true,
+      "sale_prohibited": true,
+      "free_sampling_prohibited": true,
+      "exception": "Research purposes only",
+      "events": "All events must be tobacco-free",
+      "reference": "University System of Georgia Tobacco-free Campus policy"
+    },
+    "solicitation_and_fundraising": {
+      "solicitation": "Prohibited on University Housing property",
+      "housing_groups": "Limited to housing-sponsored fundraising organizations in designated areas",
+      "non_housing_groups": "May only fundraise outside residential communities",
+      "compliance": "Must comply with Engagement, Leadership and Service guidelines"
+    },
+    "stairs_hallways_breezeways_decks_patios": {
+      "requirements": [
+        "Must be kept clean and free of obstructions",
+        "Screen doors at University Village must be properly shut",
+        "No trash, paper, cans, bottles, furniture in breezeways or adjacent grounds",
+        "No sweeping dirt/trash out doorways or throwing from windows",
+        "No laundry, rugs, carpet on breezeway or deck/patio railings"
+      ],
+      "university_village_specific": [
+        "Bicycles not in breezeways or stairwells",
+        "Toys or objects not in breezeways or stairwells",
+        "No outdoor clotheslines or racks",
+        "No outdoor construction"
+      ],
+      "removal_authority": "University reserves right to remove obstructions creating unsafe/unsightly conditions"
+    },
+    "unauthorized_entry": {
+      "authorization": "Residents only authorized to enter assigned unit",
+      "other_rooms": "Only with permission from assigned resident",
+      "prohibited_areas": [
+        "Other housing facilities",
+        "Buildings",
+        "Offices",
+        "Attics",
+        "Roofs",
+        "Other university housing-managed property"
+      ],
+      "signage": "Residents and guests expected to abide by all signage"
+    },
+    "vandalism_and_damages": {
+      "reporting": "All incidents documented and reported to UGA Police",
+      "responsibility": "Residents responsible for condition of rooms and furnishings",
+      "financial_liability": true,
+      "group_billing": {
+        "applies_to": [
+          "Individual room",
+          "Apartment unit",
+          "Wing",
+          "Floor",
+          "Suite",
+          "Residence hall"
+        ],
+        "condition": "Damage above and beyond normal wear and tear in common areas"
+      },
+      "charges": "Determined by University Housing staff",
+      "replacement": "Residents may not replace or repair damaged items",
+      "billing_fee": "$5 or more in damages may incur fee through Bursar",
+      "payment_failure": "Hold placed on records preventing class registration",
+      "severe_violations": {
+        "consequences": [
+          "Restitution fees",
+          "Student conduct proceedings",
+          "Referral to law enforcement",
+          "Termination of housing contract"
+        ],
+        "emergency_safety_equipment": "Minimum $395 charge per item (e.g., exit signs)"
+      }
+    },
+    "visitation": {
+      "definition": "Guest is any individual who has not executed a contract for the space",
+      "priority": "Roommate's rights have priority over guest's rights",
+      "roommate_agreement": "Must be mutually agreed upon and can restrict (not broaden) policy",
+      "designations": [
+        {
+          "type": "Visitation 1 (restricted)",
+          "schedule": "Monday-Thursday 10 a.m. to 2 a.m., Friday 10 a.m. through Sunday night 2 a.m."
+        },
+        {
+          "type": "Visitation 2 (24/7)",
+          "schedule": "24 hours a day, seven days a week"
+        }
+      ],
+      "modification": "May be reduced by resident vote and executive director approval",
+      "overnight_guests": {
+        "maximum_consecutive_nights": 3,
+        "maximum_per_semester": 9,
+        "conditions": [
+          "Must not exceed limits",
+          "Extensions require graduate/professional staff approval",
+          "Host must be resident of space",
+          "Permission required to use roommate's bed"
+        ],
+        "university_village": {
+          "maximum_per_semester": 14,
+          "maximum_consecutive_nights": 5,
+          "extension_process": "Email RHD at least one month in advance for up to 9 additional consecutive nights"
+        }
+      },
+      "host_responsibilities": [
+        "Responsible for guest actions",
+        "May be found responsible for guest violations",
+        "Must inform guests of policies"
+      ],
+      "escorting_guests": [
+        "Prior arrangements should be made",
+        "Must be escorted everywhere in building, 24 hours a day",
+        "Escort must be resident of building"
+      ]
+    },
+    "windows_and_screens": {
+      "prohibited_actions": [
+        "Unlatching or removing window screens",
+        "Removing window stoppers",
+        "Entering/exiting through windows (except emergencies)",
+        "Defenestration (throwing items out windows)",
+        "Hanging items outside windows"
+      ],
+      "damage": "Residents financially responsible for repairs/replacement",
+      "emergency_exception": "Only for emergency situations"
+    }
+  },
+  "student_conduct": {
+    "office": "Office of Student Conduct",
+    "phone": "706-542-1131",
+    "email": "conduct@uga.edu",
+    "jurisdiction": "On and off campus, including residence halls",
+    "conduct_regulations": [
+      {
+        "number": 1,
+        "violation": "Academic dishonesty"
+      },
+      {
+        "number": 2,
+        "violation": "Other acts of dishonesty"
+      },
+      {
+        "number": 3,
+        "violation": "Disorderly conduct (including sexual harassment)"
+      },
+      {
+        "number": 4,
+        "violation": "Alcohol and other drug related misconduct"
+      },
+      {
+        "number": 5,
+        "violation": "Theft, damage and disregard for property"
+      },
+      {
+        "number": 6,
+        "violation": "Fire safety and sanitation"
+      },
+      {
+        "number": 7,
+        "violation": "Weapons"
+      },
+      {
+        "number": 8,
+        "violation": "Unauthorized entry or use"
+      },
+      {
+        "number": 9,
+        "violation": "Student housing"
+      },
+      {
+        "number": 10,
+        "violation": "Computer use"
+      },
+      {
+        "number": 11,
+        "violation": "Gambling"
+      },
+      {
+        "number": 12,
+        "violation": "Hazing"
+      },
+      {
+        "number": 13,
+        "violation": "Interference with orderly operation of conduct process"
+      },
+      {
+        "number": 14,
+        "violation": "Shared responsibility for violations"
+      }
+    ],
+    "possible_actions": [
+      "Residential policy review",
+      "University Housing contract review",
+      "Referral to Office of Student Conduct",
+      "Referral to law enforcement"
+    ]
+  },
+  "community_living_standards": {
+    "roommate_bill_of_rights": [
+      "Right to live in a clean building and room",
+      "Right to expect roommate will respect personal belongings",
+      "Right to remedy grievances with housing staff assistance",
+      "Right to read and study without undue interference",
+      "Right to sleep without undue disturbance",
+      "Right to free access to room, furnishings and bathroom",
+      "Right to personal privacy",
+      "Right to have guests during visitation hours with respect for roommate rights"
+    ],
+    "roommate_success_plan": {
+      "required": true,
+      "purpose": "Serve as roadmap between roommates/suitemates",
+      "process": "Schedule meeting with resident assistant"
+    }
+  },
+  "contract_review_process": {
+    "purpose": "Determine if breach occurred and appropriate consequences",
+    "independence": "Independent of student conduct and law enforcement processes",
+    "immediate_action": "May include relocation or removal",
+    "process_steps": [
+      {
+        "step": "A",
+        "title": "Receipt of information",
+        "description": "University Housing receives information/documentation regarding potential violation"
+      },
+      {
+        "step": "B",
+        "title": "Review of potential violation",
+        "description": "Housing reviews information and determines if contract review necessary"
+      },
+      {
+        "step": "C",
+        "title": "Notification",
+        "description": "Email sent stating alleged violation, summary of information, meeting date/time"
+      },
+      {
+        "step": "D",
+        "title": "Housing contract review meeting",
+        "description": "Administrator explains process, reviews violations, resident presents information"
+      },
+      {
+        "step": "E",
+        "title": "Housing contract review decision",
+        "description": "Final determination made by director of residential programs and services or designee"
+      }
+    ],
+    "possible_outcomes": [
+      {
+        "outcome": "Relocation",
+        "conditions": "Violation occurred, threatens health/safety, impact is isolated, unlikely to continue if relocated",
+        "result": "New assignment determined by University Housing based on availability, may include facility restrictions"
+      },
+      {
+        "outcome": "Removal",
+        "conditions": "Violation occurred, threatens health/safety, removal necessary for safe environment",
+        "result": "Immediate removal from University Housing, housing license revoked, contract terminated"
+      },
+      {
+        "outcome": "No action",
+        "conditions": "Behavior did not occur, does not constitute violation, or does not rise to threatening level",
+        "result": "Remain in assigned housing, may receive warning and/or referral to conduct process"
+      }
+    ],
+    "relocation_removal_details": {
+      "timing": "Immediate",
+      "deadline": "Specified in outcome letter",
+      "belongings": "Must be removed by deadline",
+      "family_impact": "Spouse, domestic partner, dependents must also vacate",
+      "fees": "Remain liable for full payment, prorated for new assignment if relocated",
+      "restrictions": "May be restricted from specific halls, communities, or all facilities",
+      "permission_required": "Written permission from director required to enter restricted facilities",
+      "trespassing": "Failure to comply may result in criminal prosecution",
+      "referral": "May also be referred for disciplinary action"
+    },
+    "review_appeal": {
+      "timeline": "Within 24 hours of outcome letter receipt",
+      "method": "Written request via UGA email to executive director",
+      "content": "Specify why resident believes they were not fairly heard",
+      "process": "Review of record only, no meeting with executive director",
+      "decision_timeline": "Within five business days",
+      "exclusions": "Non-payment or pattern of late payment not reviewable"
+    }
+  },
+  "services_for_students_with_disabilities": {
+    "room_accommodations": {
+      "registration": "Must register with Accessibility and Testing",
+      "communication": "Coordinator communicates needs to University Housing",
+      "timing": "Allow adequate time before room assignment process (May 1 for fall, Dec 1 for spring)",
+      "contact": {
+        "phone": "706-542-1421",
+        "email": "housing@uga.edu"
+      }
+    },
+    "additional_accommodations": {
+      "scope": "Medical reasons, navigating assignments, alternative housing options",
+      "contact": {
+        "name": "Kim Ellis",
+        "title": "Associate Director for Assignments and Contracts",
+        "phone": "706-542-1421",
+        "email": "kimellis@uga.edu"
+      }
+    },
+    "service_animals": {
+      "notification_required": true,
+      "email": "housing@uga.edu",
+      "form": "Service animal verification form",
+      "registration": "Encouraged to register with Accessibility and Testing"
+    },
+    "service_animals_in_training": {
+      "registration": "Must register with Accessibility and Testing",
+      "process": "Associate director sends policy and agreement form",
+      "signatures_required": "Trainer and all roommates",
+      "deadline": "Before animal resides on campus"
+    },
+    "puppy_raisers": {
+      "sponsorship_required": true,
+      "sponsor_examples": "The Guide Dog Foundation",
+      "sponsor_deadline": {
+        "puppy_raisers": "February 1 for upcoming academic year",
+        "alternate_raisers_fall": "July 1",
+        "alternate_raisers_spring": "December 1"
+      },
+      "process": "Associate director sends policy and agreement form",
+      "signatures_required": "Raiser/alternate and all roommates",
+      "deadline": "Before animal resides on campus",
+      "registration": "Must also register with Accessibility and Testing"
+    },
+    "emotional_support_animals": {
+      "registration": "Must register with Accessibility and Testing for approval",
+      "approval_period": "Current contract period",
+      "process": "Associate director sends policy and ESA agreement form",
+      "signatures_required": "Resident",
+      "deadline": "Before animal resides on campus",
+      "email": "housing@uga.edu"
+    }
+  },
+  "summer_housing": {
+    "availability": "Limited number of residence halls",
+    "eligibility": "Students enrolled in summer classes",
+    "application_required": true,
+    "contact": {
+      "phone": "706-542-1421",
+      "email": "housing@uga.edu"
+    }
+  },
+  "general_information": {
+    "abandoned_items_lost_and_found": {
+      "abandoned_property": "Donated or discarded when reasonable attempts to contact owner fail",
+      "lost_items_storage": "30 calendar days at community desk",
+      "valuable_items": "Turned into UGA Police Department"
+    },
+    "air_conditioning_heating_ventilation": {
+      "thermostat": "In most rooms and apartment units",
+      "control": "Range of control in most buildings",
+      "questions": "Contact residence hall director"
+    },
+    "asbestos_awareness": {
+      "presence": "May be present in campus buildings including residential facilities",
+      "common_uses": "Pipe insulation, spray-applied ceilings, fireproofing, plaster, wall sealant, floor tile",
+      "safety": "Asbestos in undisturbed state poses no significant health concerns",
+      "prohibited_actions": "Do not grind, hammer, screw, drill, sand, or saw into building materials or walls"
+    },
+    "cameras": {
+      "locations": [
+        "Public areas inside residence halls",
+        "All secure access points",
+        "Lobbies",
+        "Stairwells",
+        "Exterior of buildings"
+      ],
+      "storage": "30 days",
+      "access": "University Housing security staff and UGA Police Department",
+      "purpose": "Identify safety and security issues"
+    },
+    "cleaning": {
+      "student_responsibility": "Assigned space, private and shared bathrooms",
+      "housing_services": "All community bathrooms",
+      "suite_apartment_bathrooms": "Residents responsible"
+    },
+    "community_desk": {
+      "services": [
+        "Distribute mail",
+        "Answer phone calls",
+        "Check IDs of residents",
+        "Issue temporary keys"
+      ]
+    },
+    "community_room_reservations": {
+      "availability": "Designated common spaces",
+      "basis": "First-come, first-served",
+      "priority": "Residents and housing staff members",
+      "information": "https://housing.uga.edu/sa_docs/staff/forms_residences_facilitiesreservation.pdf"
+    },
+    "community_televisions": {
+      "service": "University Cablevision all-digital on-campus cable TV",
+      "locations": "Various lounges in each residence hall",
+      "hdmi_connections": "Available in most locations",
+      "student_requirement": "Bring own HDMI cord"
+    },
+    "email_communications": {
+      "official_method": true,
+      "frequency": "Regular distribution",
+      "content": [
+        "Room sign-up",
+        "Break schedules",
+        "Checkout procedures",
+        "Student conduct notifications",
+        "Announcements"
+      ],
+      "responsibility": "Students responsible for information sent"
+    },
+    "environmental_sustainability": {
+      "recommendations": [
+        "Bring water bottle/utensils/mugs to limit single-use plastics",
+        "Use water refill stations",
+        "Use compost bins and plastic film collection bins",
+        "Turn off lights and appliances when not in use",
+        "Never leave computers, TVs, lights on when not home",
+        "Recycle properly (green lids for recycling, black lids for landfill)",
+        "Take shorter showers (average shower uses 1 gallon per minute)",
+        "Report leaks",
+        "Use LED light bulbs",
+        "Purchase Energy Star appliances"
+      ],
+      "bins": {
+        "green_lids": "Paper, cardboard, aluminum, most plastic",
+        "black_lids": "Single use coffee cups, food, foam, plastic film"
+      },
+      "contact": {
+        "name": "Arwen Coy",
+        "title": "Sustainability Coordinator",
+        "email": "awren.coy@uga.edu"
+      },
+      "website": "https://housing.uga.edu/about-us/sustainability/"
+    },
+    "health_and_safety_checks": {
+      "frequency": "At least once per semester and prior to break periods",
+      "purpose": "Ensure living environments remain comfortable, safe, and clean",
+      "inspection_includes": [
+        "Facility concerns",
+        "Sprinklers",
+        "Smoke detectors",
+        "Life-safety equipment",
+        "University Housing furniture condition"
+      ],
+      "advance_notice": true,
+      "preparation_instructions": true,
+      "resident_presence": "Not required",
+      "notification": "After check if concerns identified",
+      "correction_opportunity": true,
+      "housing_action": "If resident fails to address concerns",
+      "charges": "May be charged for related costs"
+    },
+    "healthy_living_environments": {
+      "air_quality_tips": [
+        "Avoid tossing outdoor items on bed",
+        "Use washable low-pile area rugs",
+        "Vacuum weekly with HEPA filter",
+        "Use washable plain cotton or synthetic curtains",
+        "Close windows during high pollen seasons",
+        "Damp-mop or vacuum flooring",
+        "Use damp cloth to clean surfaces",
+        "Hang damp items immediately and allow to dry completely",
+        "Do not hang damp items over furniture or closet doors",
+        "Ensure furniture does not block vents",
+        "Report concerns via work request"
+      ],
+      "website": "https://housing.uga.edu/student-wellbeing"
+    },
+    "internet_connectivity": {
+      "wired": {
+        "system": "High-speed Ethernet",
+        "requirements": "Device with Ethernet card and cable"
+      },
+      "wireless": {
+        "network": "PAWS-Secure",
+        "prohibited": "Personal wireless access points and routers"
+      },
+      "issues_contact": {
+        "service": "Student Technology Support",
+        "website": "https://eits.uga.edu/support/",
+        "phone": "706-542-3106"
+      },
+      "violations": "May result in IP/MAC address block or port block, referral to Office of Student Conduct"
+    },
+    "laundry_facilities": {
+      "location": "Every community",
+      "cost": "No additional cost",
+      "usage": "Residents only, personal items only",
+      "repair_contact": {
+        "vendor": "Caldwell and Gregory",
+        "phone": "1-800-927-9274",
+        "email": "service@caldwellandgregory.com"
+      },
+      "university_village_building_g": {
+        "repair_method": "Submit work request",
+        "phone": "706-542-3999",
+        "website": "workrequest.housing.uga.edu"
+      }
+    },
+    "life_saving_resources": {
+      "narcan_naloxone": {
+        "program": "ONEbox Distribution Program",
+        "location": "Public areas of residence halls"
+      },
+      "aed": {
+        "name": "Automatic External Defibrillators",
+        "purpose": "Revive someone from sudden cardiac arrest",
+        "location": "Public areas of residence halls"
+      }
+    },
+    "mail_and_packages": {
+      "residence_halls": {
+        "us_mail_delivery": "Monday-Friday, excluding holidays",
+        "private_delivery": "Seven days a week",
+        "pickup_location": "Designated community desk",
+        "pickup_hours": "24/7 when residence halls open",
+        "notification": "Email notification after logging",
+        "pickup_deadline": "10 calendar days",
+        "id_required": true,
+        "unclaimed_action": "Returned to sender after 10 days (or donated/discarded if return refused)",
+        "address_info": "Available on housing website under Explore Options",
+        "forwarding": "First-class mail forwarded for one year after checkout"
+      },
+      "university_village_and_uv_east": {
+        "usps_delivery": "Central mailboxes assigned to unit number",
+        "name_label_required": true,
+        "shared_mailbox": true,
+        "access": "Apartment key",
+        "outgoing_mail": "Place in provided box or drop at community office",
+        "staff_access": false,
+        "private_delivery": "To resident's door seven days a week"
+      }
+    },
+    "responsibility_for_student_property": {
+      "university_responsibility": false,
+      "recommendation": "Students or parents/guardians carry appropriate renter's insurance",
+      "preferred_vendor": "GradGuard",
+      "coverage_types": [
+        "Student-focused personal property",
+        "Personal liability coverage"
+      ],
+      "security_recommendation": "Lock doors to reduce theft threat",
+      "questions_contact": "Community office staff"
+    },
+    "staff_availability": {
+      "office_hours": "8 a.m. – 5 p.m., Monday through Friday",
+      "available_staff": [
+        "Administrative specialist",
+        "Assistant director",
+        "Residence hall director(s)",
+        "Maintenance staff",
+        "Residential building services workers"
+      ],
+      "on_call": {
+        "weekdays": "5 p.m. to 8 a.m.",
+        "weekends": "24 hours (5 p.m. Friday to 8 a.m. Monday)"
+      },
+      "on_call_response": [
+        "Emergencies",
+        "Major facilities issues"
+      ],
+      "contact_method": "Call community desk to contact available staff"
+    },
+    "student_employment": {
+      "positions": [
+        "Desk assistants",
+        "Maintenance assistants/painters",
+        "Resident assistants",
+        "Residential belonging assistants",
+        "Digital media assistants",
+        "Graduate staff positions"
+      ],
+      "information": "Community offices or housing website student employment section"
+    },
+    "toilets_low_flow": {
+      "prevention_tips": [
+        "Flush limited amounts of toilet paper at one time",
+        "Do not dispose of feminine products, paper towels, or personal wipes in toilets",
+        "If toilet does not flush properly first time, do not flush second time",
+        "Turn off water using cut-off valve under toilet if overflow occurs"
+      ],
+      "problem_contact": {
+        "phone": "706-542-3999",
+        "alternative": "Contact community desk"
+      }
+    },
+    "tornado_warning": {
+      "definition": "Tornado has been sighted in immediate area",
+      "notification": [
+        "UGAAlert activated",
+        "City sirens (steady blast/tone for 3-5 minutes)",
+        "Local FM and TV stations",
+        "Housing digital signs"
+      ],
+      "action": "Proceed to designated tornado shelter location immediately",
+      "shelter_location": "See chart at end of guide",
+      "shelter_position": "Areas away from windows with doors closed",
+      "apartments": "Bathroom or other interior locations with no windows",
+      "duration": "Remain sheltered until siren silenced",
+      "all_clear": "UGA Alert will issue all clear",
+      "recommendations": "Remain indoors, away from windows, on lowest floor"
+    },
+    "tornado_watch": {
+      "definition": "Atmospheric conditions such that tornado could develop",
+      "issuer": "National Weather Service",
+      "parameters": "Specific time periods and geographic areas",
+      "action": [
+        "Monitor weather",
+        "Take precautionary measures",
+        "Review tornado warning procedures"
+      ],
+      "website": "https://prepare.uga.edu/severe-weather/"
+    },
+    "uga_alert": {
+      "purpose": "Mass emergency notification system",
+      "managed_by": "Office of Emergency Preparedness",
+      "contact_methods": "Up to three phone numbers and two email addresses",
+      "triggers": "Severe threat to public safety and health of entire campus",
+      "requirement": "Valid UGA MyID",
+      "signup": "https://emergency.uga.edu/ugaalert/",
+      "recommendation": "Every resident encouraged to participate"
+    },
+    "uga_safe": {
+      "type": "Mobile app",
+      "features": [
+        "Access emergency resources",
+        "Mobile BlueLight function",
+        "View transit information"
+      ],
+      "website": "prepare.uga.edu/uga-safe",
+      "contact": {
+        "office": "Office of Emergency Preparedness",
+        "email": "prepare@uga.edu",
+        "phone": "706-542-5845"
+      }
+    },
+    "work_requests": {
+      "purpose": "Routine maintenance to residence halls and apartments",
+      "submission_method": "Online at https://workrequest.housing.uga.edu/",
+      "urgent_daytime": "Call Work Control Office at 706-542-3999 or community desk",
+      "after_hours_emergency": "Contact 24-hour community desk immediately",
+      "charges": "No charge for routine maintenance, fee for damages beyond normal wear and tear"
+    }
+  },
+  "community_activities": {
+    "engagement_opportunities": {
+      "description": "Environment for students to live and learn together",
+      "events": "Vary by community",
+      "participation": "Students encouraged to participate or develop own ideas",
+      "event_viewing": [
+        "Campus Involvement Network",
+        "Flyers in community"
+      ]
+    },
+    "community_councils": {
+      "composition": "Elected officers and representatives",
+      "benefits": [
+        "Develop leadership skills",
+        "Make friends",
+        "Become involved in community"
+      ],
+      "funding": "Hall programming funds",
+      "activities": "Plan events at regularly scheduled meetings",
+      "purpose": "Implement events responding to resident needs and requests",
+      "elections": "Early September",
+      "interest_form": "Community Council Interest Form"
+    },
+    "residence_hall_association": {
+      "abbreviation": "RHA",
+      "composition": "Executive board of residents and elected representative from each community council",
+      "role": "Advocate for residents throughout campus",
+      "collaboration": "Works with housing staff and residents on policies, procedures, programs, facilities",
+      "programs": [
+        "Dawg Fest",
+        "Leadership forums",
+        "Co-sponsored campus events"
+      ],
+      "goals": "Foster camaraderie among residents and communities",
+      "opportunities": "Travel to leadership conferences around the country",
+      "website": "https://housing.uga.edu/rha/"
+    },
+    "national_residence_hall_honorary": {
+      "abbreviation": "NRHH",
+      "core_values": [
+        "Recognition",
+        "Service"
+      ],
+      "purpose": [
+        "Provide recognition for individuals contributing to advancement of college/university housing",
+        "Bring service opportunities to RHA and community councils",
+        "Ensure advancement of member chapters through resource sharing, programming, leadership development"
+      ],
+      "affiliation": "National Association of College and University Residence Halls",
+      "website": "https://housing.uga.edu/nrhh/"
+    }
+  },
+  "housing_staff": {
+    "administrative_specialists": {
+      "duties": [
+        "Supervise student staff at front desks",
+        "Oversee office operations",
+        "Provide administrative support for full-time staff",
+        "Assist residents and guests with questions/concerns"
+      ]
+    },
+    "assistant_directors": {
+      "scope": "2,000-3,500 students",
+      "responsibilities": [
+        "Manage comprehensive operations of residential areas",
+        "Supervise residence hall directors",
+        "Coordinate community-building events",
+        "Coordinate educational activities",
+        "Oversee student personnel",
+        "Respond to behavioral and developmental needs",
+        "Manage opening and closing of residence halls"
+      ]
+    },
+    "residential_building_services_workers": {
+      "type": "Full-time staff",
+      "responsibility": "Clean common areas of buildings to ensure quality living environment"
+    },
+    "residential_belonging_assistants": {
+      "abbreviation": "RBA",
+      "type": "Peer leaders",
+      "residence": "Live among students in residential communities",
+      "purpose": "Enhance on-campus experience by creating thriving and inclusive communities",
+      "activities": [
+        "Facilitate community building events",
+        "Facilitate learning activities",
+        "Connect students with each other",
+        "Connect students with resources promoting belonging"
+      ]
+    },
+    "desk_assistants": {
+      "abbreviation": "DA",
+      "type": "Student workers",
+      "location": "Community desks",
+      "responsibilities": [
+        "Check ID cards of residents",
+        "Check out temporary keys",
+        "Distribute mail",
+        "Answer phone calls"
+      ]
+    },
+    "graduate_residents": {
+      "abbreviation": "GR",
+      "type": "Graduate students",
+      "responsibilities": [
+        "General supervision and management of assigned residence hall",
+        "Basic academic and personal advising",
+        "Assist in developmental learning activities",
+        "Facilities management",
+        "Community building",
+        "Sense-of-belonging efforts",
+        "Special projects"
+      ],
+      "supervision": "Some GRs supervise RAs, others support academic and leadership efforts"
+    },
+    "residence_hall_directors": {
+      "abbreviation": "RHD",
+      "type": "Full-time, live-in professional staff",
+      "responsibilities": [
+        "Advise community councils",
+        "Supervise student staff",
+        "Coordinate community and learning events",
+        "Support assistant director in day-to-day administration"
+      ],
+      "supervision": "Some RHDs supervise GRs"
+    },
+    "resident_assistants": {
+      "abbreviation": "RA",
+      "type": "Peer leaders",
+      "residence": "Live among students in residential communities",
+      "responsibilities": [
+        "Develop meaningful relationships with residents",
+        "Shape learning experience of residents",
+        "Facilitate community involvement",
+        "Assist in management of student concerns",
+        "Educate residents on responsibilities as community members"
+      ],
+      "focus_areas": [
+        "Community building and belonging",
+        "Interpersonal skills",
+        "Student success",
+        "Wellbeing"
+      ]
+    },
+    "residential_leadership_coordinator": {
+      "responsibilities": [
+        "Oversee leadership initiatives within residence halls",
+        "Oversee community council"
+      ],
+      "advisor_for": [
+        "Residence Hall Association (RHA)",
+        "National Residence Hall Honorary (NRHH)"
+      ]
+    },
+    "coordinator_for_residential_education_and_belonging": {
+      "primary_focus": "Maintaining inclusive community by promoting belonging and healthy living environments",
+      "responsibilities": [
+        "Oversee residential belonging assistant program",
+        "Coordinate belonging efforts within University Housing",
+        "Collaborate with campus partners"
+      ]
+    },
+    "security_staff": {
+      "type": "Full-time",
+      "hours": "9 p.m. to 6 a.m.",
+      "responsibilities": [
+        "Maintain security in and around facilities",
+        "Check grounds surrounding buildings",
+        "Check parking lots",
+        "Check for propped and unsecured doors",
+        "Report suspicious behavior to UGA Police Department"
+      ]
+    },
+    "skilled_trades_workers": {
+      "services": [
+        "Maintenance support",
+        "Technical expertise",
+        "Upkeep of building systems and infrastructure"
+      ],
+      "specialties": [
+        "Plumbing",
+        "Heating/cooling",
+        "Electrical",
+        "Carpentry",
+        "Appliance repair"
+      ]
+    }
+  },
+  "important_phone_numbers": {
+    "dialing_system": "Ten-digit dialing, 706 area code required for local calls",
+    "general_housing_offices": [
+      {
+        "name": "Main housing office/Housing Assignments Office",
+        "location": "Russell Hall",
+        "phone": "706-542-1421",
+        "email": "housing@uga.edu",
+        "website": "housing.uga.edu"
+      },
+      {
+        "name": "Housing Business and Human Resources",
+        "location": "Creswell Hall",
+        "phone": "706-542-8279"
+      },
+      {
+        "name": "Housing Security",
+        "location": "Creswell Hall",
+        "phone": "706-542-4467"
+      },
+      {
+        "name": "Residential Programs and Services",
+        "location": "Creswell Hall",
+        "phone": "706-542-6533"
+      },
+      {
+        "name": "Work Control Office",
+        "location": "710 East Campus Rd.",
+        "phone": "706-542-3999",
+        "website": "https://workrequest.housing.uga.edu/"
+      }
+    ],
+    "community_offices": [
+      {
+        "building": "Black-Diallo-Miller Hall",
+        "front_desk": "706-542-6080",
+        "community_office": "706-542-5217",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-621-9378"
+      },
+      {
+        "building": "Boggs Hall",
+        "front_desk": "706-542-9424",
+        "front_desk_location": "Hill Hall",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4384"
+      },
+      {
+        "building": "Brandon Oaks",
+        "front_desk": "706-542-1473",
+        "front_desk_location": "710 East Campus Rd.",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5688"
+      },
+      {
+        "building": "Brown Hall",
+        "front_desk": "706-713-2657",
+        "community_office": "706-542-5271",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-612-5821"
+      },
+      {
+        "building": "Brumby Hall",
+        "front_desk": "706-542-1490",
+        "community_office": "706-542-8344",
+        "ra_on_call": "706-612-8061"
+      },
+      {
+        "building": "Building 1516",
+        "front_desk": "706-583-0277",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5068"
+      },
+      {
+        "building": "Busbee Hall",
+        "front_desk": "706-542-1780",
+        "front_desk_location": "Rooker Hall",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5281"
+      },
+      {
+        "building": "Church Hall",
+        "front_desk": "706-542-9424",
+        "front_desk_location": "Hill Hall",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4384"
+      },
+      {
+        "building": "Creswell Hall",
+        "front_desk": "706-542-8289",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4021"
+      },
+      {
+        "building": "Hill Hall",
+        "front_desk": "706-542-9424",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4384"
+      },
+      {
+        "building": "Lipscomb Hall",
+        "front_desk": "706-542-9424",
+        "front_desk_location": "Hill Hall",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4441"
+      },
+      {
+        "building": "Mary Lyndon Hall",
+        "front_desk": "706-542-8271",
+        "front_desk_location": "Myers Hall",
+        "community_office": "706-542-5217",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-612-4454"
+      },
+      {
+        "building": "McWhorter Hall",
+        "front_desk": "706-542-1780",
+        "front_desk_location": "Rooker Hall",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5281"
+      },
+      {
+        "building": "Mell Hall",
+        "front_desk": "706-542-9424",
+        "front_desk_location": "Hill Hall",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4441"
+      },
+      {
+        "building": "Morris Hall",
+        "front_desk": "706-357-3311",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-4441"
+      },
+      {
+        "building": "Myers Hall",
+        "front_desk": "706-542-8271",
+        "community_office": "706-542-5217",
+        "ra_on_call": "706-612-4454"
+      },
+      {
+        "building": "Oglethorpe House",
+        "front_desk": "706-542-8384",
+        "community_office": "706-542-5217",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-612-4368"
+      },
+      {
+        "building": "Payne Hall",
+        "front_desk": "706-542-3753",
+        "front_desk_location": "Reed Hall",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-4840"
+      },
+      {
+        "building": "Reed Hall",
+        "front_desk": "706-542-3753",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-4808"
+      },
+      {
+        "building": "Rogers Road",
+        "front_desk": "706-542-1473",
+        "front_desk_location": "710 East Campus Rd.",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5688"
+      },
+      {
+        "building": "Rooker Hall",
+        "front_desk": "706-542-1780",
+        "community_office": "706-542-2041",
+        "ra_on_call": "706-612-5281"
+      },
+      {
+        "building": "Russell Hall",
+        "front_desk": "706-542-6090",
+        "community_office": "706-542-8344",
+        "community_office_location": "Brumby Hall",
+        "ra_on_call": "706-612-8671"
+      },
+      {
+        "building": "Rutherford Hall",
+        "front_desk": "706-542-8271",
+        "front_desk_location": "Myers Hall",
+        "community_office": "706-542-5217",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-612-4454"
+      },
+      {
+        "building": "Soule Hall",
+        "front_desk": "706-542-8271",
+        "front_desk_location": "Myers Hall",
+        "community_office": "706-542-5217",
+        "community_office_location": "Myers Hall",
+        "ra_on_call": "706-612-4454"
+      },
+      {
+        "building": "University Village",
+        "front_desk": "706-542-1473",
+        "front_desk_location": "710 East Campus Rd.",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5688"
+      },
+      {
+        "building": "UV East",
+        "front_desk": "706-542-1473",
+        "front_desk_location": "710 East Campus Rd.",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5688"
+      },
+      {
+        "building": "Vandiver Hall",
+        "front_desk": "706-542-1780",
+        "front_desk_location": "Rooker Hall",
+        "community_office": "706-542-2041",
+        "community_office_location": "Rooker Hall",
+        "ra_on_call": "706-612-5281"
+      }
+    ],
+    "safety_numbers": [
+      {
+        "service": "Fire, police and ambulance",
+        "number": "911"
+      },
+      {
+        "service": "UGA Police Department",
+        "number": "706-542-2200"
+      }
+    ]
+  },
+  "fire_evacuation_and_severe_weather_shelter": [
+    {
+      "building": "BLACK-DIALLO-MILLER HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the W07 parking lot near Creswell Hall or in the parking lot near Creswell Hall directly parallel to Cloverhurst St. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the building in the interior hallways away from windows. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BOGGS HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the Legion Field parking lot. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first-floor community hallway or bathroom, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BRANDON OAKS",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the building away from windows, in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BUILDING 1516",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the East Campus Village quad in front of Rooker Hall. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in hallways away from windows, in lower floor stairwells or in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BROWN HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the parking lot in front of Brown Hall and move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in hallways away from windows, in lower floor stairwells or in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BRUMBY HALL",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in interior hallways and community bathrooms of the building, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "BUSBEE HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble near the E04/Ramsey parking deck. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways, away from windows or in the lower floor stairwells. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "CHURCH HALL",
+      "fire_evacuation_location": "Move a minimum of 300 feet away from the building and out of the way of fire safety personnel. Follow instructions given via UGA Alert.",
+      "severe_weather_procedure": "Proceed to the first-floor community hallway or bathroom, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "CRESWELL HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the Black-Diallo-Miller courtyard or across Linnentown Lane on the Russell Hall lawn. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in interior hallways and community bathrooms of the building, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "HILL HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the Legion Field parking lot. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first-floor community hallway or bathroom, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "LIPSCOMB HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the Legion Field parking lot. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first-floor community hallway or bathroom, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "MARY LYNDON HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble on the front steps of Rutherford Hall. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "MCWHORTER HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble near the E05/East parking deck. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways, away from windows or in the lower floor stairwells. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "MELL HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the Legion Field parking lot. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first-floor community hallway or bathroom, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "MORRIS HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble on the Special Collections Library lawn. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "MYERS HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble at the far end of the quad closest to Soule Hall on the sidewalk nearest Lumpkin Street. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "OGLETHORPE HOUSE",
+      "fire_evacuation_location": "All residents must evacuate. Assemble in the W11 lot closest to Boggs Hall. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "PAYNE HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble on Reed Quad in front of Milledge Hall. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "REED HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble on the sidewalk farthest away from the building near Reed Quad and parallel to Hooper Street. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "ROGERS ROAD",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the building at the lowest level possible away from windows, in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "ROOKER HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble near the E05/East parking deck. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways, away from windows or in the lower floor stairwells. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "RUSSELL HALL",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in interior hallways and community bathrooms of the building, away from glass and windows while keeping room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "RUTHERFORD HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble at the far end of the quad closest to Mary Lyndon Hall. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "SOULE HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble on Myers Quad. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways and community bathrooms, away from windows or in the lower floor stairwells. Keep room doors closed. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "UNIVERSITY VILLAGE",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the building at the lowest level possible away from windows, in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "UV EAST",
+      "fire_evacuation_location": "All residents must evacuate. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Remain in the building at the lowest level possible away from windows, in an interior closet or bathroom. Follow instructions given via UGA Alert."
+    },
+    {
+      "building": "VANDIVER HALL",
+      "fire_evacuation_location": "All residents must evacuate. Assemble near the E05/East parking deck. Move a minimum of 300 feet away from the building and out of the way of fire safety personnel.",
+      "severe_weather_procedure": "Proceed to the first floor of the building and remain in the hallways, away from windows or in the lower floor stairwells. Follow instructions given via UGA Alert."
+    }
+  ]
+}

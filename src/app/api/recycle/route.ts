@@ -29,7 +29,7 @@ async function identifyObjects(imageBase64: string, mimeType: string): Promise<s
                 },
                 {
                   type: 'text',
-                  text: 'Identify every object you can see in this image. List them as a comma-separated list. Be specific (e.g. "plastic water bottle", "banana peel", "cardboard box"). Only list the objects, nothing else.',
+                  text: 'Identify ONLY the main object being held or presented in this image. Ignore hands, fingers, arms, backgrounds, surfaces, and anything that is not the primary item. Be specific (e.g. "plastic water bottle", "banana peel", "cardboard box"). List only the main item(s), comma-separated, nothing else.',
                 },
               ],
             },
