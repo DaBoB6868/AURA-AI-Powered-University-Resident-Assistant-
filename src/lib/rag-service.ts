@@ -4,8 +4,11 @@ import { vectorStore } from './vector-store';
 
 const chatModel = new ChatOpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY,
-  modelName: 'gpt-3.5-turbo',
+  modelName: 'openai/gpt-3.5-turbo',
   temperature: 0.7,
+  configuration: {
+    baseURL: 'https://openrouter.ai/api/v1',
+  },
 });
 
 interface Message {
