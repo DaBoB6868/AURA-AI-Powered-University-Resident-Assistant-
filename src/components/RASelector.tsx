@@ -195,13 +195,16 @@ export function RASelector() {
               type="email"
               className="w-full px-3 py-2.5 border border-gray-300 rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-red-700"
             />
-            <input
-              value={preferredTime}
-              onChange={(e) => setPreferredTime(e.target.value)}
-              type="datetime-local"
-              min={minDateTime}
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-red-700 bg-white"
-            />
+            <div>
+              <p className="text-xs text-gray-500 mb-1.5">Preferred date & time</p>
+              <input
+                value={preferredTime}
+                onChange={(e) => setPreferredTime(e.target.value)}
+                type="datetime-local"
+                min={minDateTime}
+                className="w-full px-3 py-2.5 border border-gray-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-red-700 bg-white"
+              />
+            </div>
 
             {/* Reason chips */}
             <div>
