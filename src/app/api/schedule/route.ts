@@ -28,24 +28,42 @@ function createTransporter() {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    ensureDataFile();
+    let body: any;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ ok: false, error: 'Invalid JSON in request body' }, { status: 400 });
+    }
 
-    // Persist to file
-    const raw = fs.readFileSync(SCHEDULE_FILE, 'utf-8');
-    const arr = JSON.parse(raw || '[]');
-    const entry = {
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      ...body,
-    };
-    arr.push(entry);
-    fs.writeFileSync(SCHEDULE_FILE, JSON.stringify(arr, null, 2));
-    console.log('Persisted schedule request:', entry);
+    // Validate required fields
+    const { studentName, studentEmail, preferredTime, raEmail, raName } = body;
+    if (!studentName?.trim() || !studentEmail?.trim() || !preferredTime?.trim()) {
+      return NextResponse.json(
+        { ok: false, error: 'Missing required fields: studentName, studentEmail, preferredTime' },
+        { status: 400 },
+      );
+    }
+
+    // Persist to file (best-effort — filesystem may be read-only on Vercel)
+    let persisted = false;
+    try {
+      ensureDataFile();
+      const raw = fs.readFileSync(SCHEDULE_FILE, 'utf-8');
+      const arr = JSON.parse(raw || '[]');
+      const entry = {
+        id: Date.now().toString(),
+        createdAt: new Date().toISOString(),
+        ...body,
+      };
+      arr.push(entry);
+      fs.writeFileSync(SCHEDULE_FILE, JSON.stringify(arr, null, 2));
+      persisted = true;
+      console.log('Persisted schedule request:', entry.id);
+    } catch (fsErr) {
+      console.warn('Could not persist schedule to disk (read-only FS?):', fsErr);
+    }
 
     // Send email via Gmail SMTP
-    const raEmail = body.raEmail;
-    const studentEmail = body.studentEmail;
     const gmailUser = process.env.GMAIL_USER;
     const gmailPass = process.env.GMAIL_APP_PASSWORD;
     let emailSent = false;
@@ -104,12 +122,18 @@ export async function POST(request: Request) {
       ok: true,
       message: emailSent
         ? 'Request saved & email sent to your RA!'
-        : `Request saved, but email failed: ${emailError}`,
-      id: entry.id,
+        : persisted
+          ? `Request saved, but email failed: ${emailError}`
+          : emailSent
+            ? 'Email sent to your RA!'
+            : `Could not send email: ${emailError}`,
       emailSent,
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('Schedule POST error:', err);
-    return NextResponse.json({ ok: false, error: 'Invalid request' }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: err?.message || 'Unexpected server error' },
+      { status: 500 },
+    );
   }
 }

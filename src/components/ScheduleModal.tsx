@@ -24,7 +24,14 @@ export function ScheduleModal({ open, onClose, frontDeskName }: ScheduleModalPro
       const res = await fetch('/api/schedule', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, when, frontDeskName }),
+        body: JSON.stringify({
+          studentName: name,
+          studentEmail: email,
+          preferredTime: when,
+          raName: frontDeskName || 'Front Desk RA',
+          raEmail: '',
+          reason: 'Via emergency banner schedule',
+        }),
       });
       const data = await res.json();
       if (res.ok) {
