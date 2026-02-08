@@ -1,16 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
-import { Leaf, Recycle, Camera, Upload, Loader } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Leaf, Recycle, Camera, Upload, Loader, ImageIcon } from "lucide-react";
+
+/** Resize / compress an image file to a max dimension & JPEG quality */
+async function compressImage(file: File, maxDim = 1024, quality = 0.7): Promise<File> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      let { width, height } = img;
+      if (width > maxDim || height > maxDim) {
+        const ratio = Math.min(maxDim / width, maxDim / height);
+        width = Math.round(width * ratio);
+        height = Math.round(height * ratio);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d")!;
+      ctx.drawImage(img, 0, 0, width, height);
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) return resolve(file); // fallback to original
+          resolve(new File([blob], file.name.replace(/\.\w+$/, ".jpg"), { type: "image/jpeg" }));
+        },
+        "image/jpeg",
+        quality
+      );
+    };
+    img.onerror = () => resolve(file); // fallback
+    img.src = url;
+  });
+}
 
 export function RecycleChecker() {
   const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
-  const [cameraActive, setCameraActive] = useState(false);
-  const videoRef = React.useRef<HTMLVideoElement | null>(null);
-  const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
+
+  const galleryRef = useRef<HTMLInputElement | null>(null);
+  const cameraRef = useRef<HTMLInputElement | null>(null);
+
+  /** Process a picked / captured file: compress then set state */
+  async function handleFile(raw: File | null | undefined) {
+    if (!raw) return;
+    setError(null);
+    setResult(null);
+    const compressed = await compressImage(raw);
+    setFile(compressed);
+    setPreview(URL.createObjectURL(compressed));
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -33,47 +76,6 @@ export function RecycleChecker() {
     }
   }
 
-  async function startCamera() {
-    setError(null);
-    if (!navigator.mediaDevices?.getUserMedia) {
-      setError("Camera not supported on this device.");
-      return;
-    }
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        await videoRef.current.play();
-        setCameraActive(true);
-      }
-    } catch (err: any) {
-      setError(err?.message || String(err));
-    }
-  }
-
-  function stopCamera() {
-    setCameraActive(false);
-    const stream = videoRef.current?.srcObject as MediaStream | null;
-    stream?.getTracks().forEach((t) => t.stop());
-    if (videoRef.current) videoRef.current.srcObject = null;
-  }
-
-  function capturePhoto() {
-    if (!videoRef.current) return;
-    const video = videoRef.current;
-    const canvas = canvasRef.current || document.createElement("canvas");
-    canvas.width = video.videoWidth || 1280;
-    canvas.height = video.videoHeight || 720;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    canvas.toBlob((blob) => {
-      if (!blob) return;
-      setFile(new File([blob], `capture-${Date.now()}.jpg`, { type: blob.type }));
-      stopCamera();
-    }, "image/jpeg");
-  }
-
   return (
     <div className="w-full bg-gradient-to-b from-green-50 to-white rounded-xl shadow-md border border-green-100 overflow-hidden">
       {/* Header with logos */}
@@ -89,53 +91,72 @@ export function RecycleChecker() {
       {/* Content */}
       <div className="p-3 sm:p-4">
         <form onSubmit={onSubmit} className="space-y-3">
-          {/* File / camera upload */}
-          <label className="flex items-center justify-center gap-2 w-full px-4 py-3.5 border-2 border-dashed border-green-300 rounded-xl cursor-pointer hover:border-green-500 hover:bg-green-50 active:bg-green-100 transition-all">
-            <Upload className="w-5 h-5 text-green-600" />
-            <span className="text-sm text-gray-800 font-medium">
-              {file ? file.name : "Choose or take a photo"}
-            </span>
-            <input
-              type="file"
-              accept="image/*"
-              capture="environment"
-              onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-              className="hidden"
-            />
-          </label>
+          {/* Hidden native file inputs */}
+          <input
+            ref={galleryRef}
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleFile(e.target.files?.[0])}
+            className="hidden"
+          />
+          <input
+            ref={cameraRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={(e) => handleFile(e.target.files?.[0])}
+            className="hidden"
+          />
 
-          {/* Action buttons */}
-          <div className="flex gap-2">
+          {/* Preview */}
+          {preview ? (
+            <div className="relative rounded-xl overflow-hidden border-2 border-green-200">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={preview} alt="Preview" className="w-full max-h-48 object-contain bg-gray-50" />
+              <button
+                type="button"
+                onClick={() => { setFile(null); setPreview(null); setResult(null); }}
+                className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold"
+              >
+                ✕
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-2 w-full px-4 py-6 border-2 border-dashed border-green-300 rounded-xl text-center">
+              <ImageIcon className="w-8 h-8 text-green-300" />
+              <span className="text-sm text-gray-500 font-medium">No photo selected</span>
+            </div>
+          )}
+
+          {/* Action buttons — two pickers + submit */}
+          <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
-              onClick={() => (cameraActive ? stopCamera() : startCamera())}
-              className="flex-1 flex items-center justify-center gap-1 px-3 py-3 bg-green-600 text-white rounded-xl text-sm font-semibold hover:bg-green-700 active:bg-green-800 active:scale-[0.98] transition-all"
+              onClick={() => cameraRef.current?.click()}
+              className="flex items-center justify-center gap-1.5 px-3 py-3 bg-green-600 text-white rounded-xl text-sm font-semibold hover:bg-green-700 active:bg-green-800 active:scale-[0.98] transition-all"
             >
               <Camera className="w-4 h-4" />
-              {cameraActive ? "Stop" : "Camera"}
+              Take Photo
             </button>
             <button
-              type="submit"
-              disabled={!file || loading}
-              className="flex-1 flex items-center justify-center gap-1 px-3 py-3 bg-emerald-600 text-white rounded-xl text-sm font-semibold hover:bg-emerald-700 active:bg-emerald-800 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              type="button"
+              onClick={() => galleryRef.current?.click()}
+              className="flex items-center justify-center gap-1.5 px-3 py-3 bg-green-100 text-green-800 rounded-xl text-sm font-semibold hover:bg-green-200 active:bg-green-300 active:scale-[0.98] transition-all"
             >
-              {loading ? <Loader className="w-4 h-4 animate-spin" /> : <Recycle className="w-4 h-4" />}
-              {loading ? "Checking…" : "Check It"}
+              <Upload className="w-4 h-4" />
+              Gallery
             </button>
           </div>
-        </form>
 
-        {/* Camera viewfinder */}
-        {cameraActive && (
-          <div className="mt-3">
-            <video ref={videoRef} className="w-full rounded-xl border-2 border-green-200" playsInline />
-            <div className="flex gap-2 mt-2">
-              <button onClick={capturePhoto} className="flex-1 px-3 py-2.5 bg-green-700 text-white rounded-xl font-semibold active:bg-green-800 active:scale-[0.98] transition-all">📸 Capture</button>
-              <button onClick={stopCamera} className="flex-1 px-3 py-2.5 bg-gray-200 text-gray-800 rounded-xl font-semibold active:bg-gray-300 active:scale-[0.98] transition-all">Cancel</button>
-            </div>
-            <canvas ref={canvasRef} className="hidden" />
-          </div>
-        )}
+          <button
+            type="submit"
+            disabled={!file || loading}
+            className="w-full flex items-center justify-center gap-2 px-3 py-3 bg-emerald-600 text-white rounded-xl text-sm font-semibold hover:bg-emerald-700 active:bg-emerald-800 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          >
+            {loading ? <Loader className="w-4 h-4 animate-spin" /> : <Recycle className="w-4 h-4" />}
+            {loading ? "Checking…" : "Check It"}
+          </button>
+        </form>
 
         {/* Error */}
         {error && <div className="text-red-600 text-sm mt-3 bg-red-50 p-2 rounded-lg">{error}</div>}

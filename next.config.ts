@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* Allow larger uploads (phone photos) — 10 MB */
+  serverExternalPackages: ['pdf-parse'],
 };
 
 export default nextConfig;
