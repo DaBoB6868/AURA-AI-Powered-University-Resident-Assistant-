@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "AURA — AI-powered University Resident Assistant",
     description: "Your AI-powered UGA dorm assistant",
     type: "website",
-    url: "https://ra-bot.tech",
+    url: "https://aura-hub.tech",
   },
 };
 
