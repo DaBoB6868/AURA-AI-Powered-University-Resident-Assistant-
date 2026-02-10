@@ -12,7 +12,7 @@
     "@google-cloud/vision": "^5.3.4",
     "@google/generative-ai": "^0.24.1",
     "@langchain/core": "^1.1.19",
-    "@langchain/google-genai": "^0.0.15",
+    "@langchain/google-genai": "^2.1.16",
     "@langchain/openai": "^1.2.5",
     "@langchain/textsplitters": "^1.0.1",
     "@napi-rs/canvas": "^0.1.90",
