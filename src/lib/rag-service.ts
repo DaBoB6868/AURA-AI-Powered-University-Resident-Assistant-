@@ -331,21 +331,94 @@ function getRelevantSections(query: string): string {
   return allParts.join('\n\n');
 }
 
-// Look up building-specific phone numbers from the community guide
-function getBuildingPhoneInfo(userLocation: string): string {
-  const guide = getCommunityGuide();
-  const offices = (guide as any)?.important_phone_numbers?.community_offices;
-  if (!Array.isArray(offices) || !userLocation) return '';
+// ══════════════════════════════════════════════════════════════
+// Building → Community mapping using building-mappings.json
+// (accurate community data: front desk, phone, policies, etc.)
+// ══════════════════════════════════════════════════════════════
+import buildingMappings from './building-mappings.json';
+
+interface CommunityInfo {
+  buildings: string[];
+  frontDesk: string;
+  frontDeskLocation: string;
+  frontDeskPhone: string;
+  quietHours: string;
+  courtesyHours: string;
+  laundry: string;
+  diningNearby: string[];
+  mailroom: string;
+  parking: string;
+  roomType: string;
+  amenities: string[];
+  policies: Record<string, string>;
+}
+
+function getBuildingCommunityInfo(userLocation: string): string {
+  if (!userLocation) return '';
 
   const loc = userLocation.toLowerCase().trim();
-  const match = offices.find((o: any) => o.building?.toLowerCase().includes(loc) || loc.includes(o.building?.toLowerCase()));
-  if (!match) return '';
+  const lookup = (buildingMappings as any).buildingLookup as Record<string, string>;
+  const communities = (buildingMappings as any).communities as Record<string, CommunityInfo>;
 
-  const parts = [`Phone info for ${match.building}:`];
-  if (match.front_desk) parts.push(`  Front Desk: ${match.front_desk}${match.front_desk_location ? ` (at ${match.front_desk_location})` : ''}`);
-  if (match.community_office) parts.push(`  Community Office: ${match.community_office}${match.community_office_location ? ` (at ${match.community_office_location})` : ''}`);
-  if (match.ra_on_call) parts.push(`  RA On-Call: ${match.ra_on_call}`);
-  return parts.join('\n');
+  // Find which community this building belongs to
+  const communityName = lookup[loc];
+  if (!communityName || !communities[communityName]) {
+    // Fallback: try partial match
+    const key = Object.keys(lookup).find((k) => loc.includes(k) || k.includes(loc));
+    if (!key) return '';
+    const fallbackCommunity = lookup[key];
+    if (!fallbackCommunity || !communities[fallbackCommunity]) return '';
+    return formatCommunityInfo(userLocation, fallbackCommunity, communities[fallbackCommunity]);
+  }
+
+  return formatCommunityInfo(userLocation, communityName, communities[communityName]);
+}
+
+function formatCommunityInfo(building: string, communityName: string, info: CommunityInfo): string {
+  // Also grab building-specific phone info from community_guide JSON
+  const guide = getCommunityGuide();
+  const offices = (guide as any)?.important_phone_numbers?.community_offices;
+  let buildingPhone = '';
+  if (Array.isArray(offices)) {
+    const bLoc = building.toLowerCase().trim();
+    const match = offices.find((o: any) =>
+      o.building?.toLowerCase().includes(bLoc) || bLoc.includes(o.building?.toLowerCase())
+    );
+    if (match) {
+      const parts: string[] = [];
+      if (match.front_desk) parts.push(`Building Front Desk: ${match.front_desk}${match.front_desk_location ? ` (at ${match.front_desk_location})` : ''}`);
+      if (match.community_office) parts.push(`Community Office: ${match.community_office}${match.community_office_location ? ` (at ${match.community_office_location})` : ''}`);
+      if (match.ra_on_call) parts.push(`RA On-Call: ${match.ra_on_call}`);
+      buildingPhone = parts.join('\n');
+    }
+  }
+
+  const lines = [
+    `=== ${building.toUpperCase()} — ${communityName} ===`,
+    `Community: ${communityName}`,
+    `Buildings in this community: ${info.buildings.join(', ')}`,
+    `Front Desk: ${info.frontDesk} at ${info.frontDeskLocation}`,
+    `Front Desk Phone: ${info.frontDeskPhone}`,
+    buildingPhone ? `\n${buildingPhone}` : '',
+    `Quiet Hours: ${info.quietHours}`,
+    `Courtesy Hours: ${info.courtesyHours}`,
+    `Laundry: ${info.laundry}`,
+    `Dining Nearby: ${info.diningNearby.join(', ')}`,
+    `Mail/Packages: ${info.mailroom}`,
+    `Parking: ${info.parking}`,
+    `Room Type: ${info.roomType}`,
+    `Amenities: ${info.amenities.join(', ')}`,
+    '',
+    'Community Policies:',
+    ...Object.entries(info.policies).map(([key, val]) => `  ${key}: ${val}`),
+  ];
+
+  return lines.filter((l) => l !== '').join('\n');
+}
+
+// Legacy function kept for compatibility
+function getBuildingPhoneInfo(userLocation: string): string {
+  return getBuildingCommunityInfo(userLocation);
 }
 
 interface Message {

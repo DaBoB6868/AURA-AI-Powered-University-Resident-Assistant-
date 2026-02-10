@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Loader, MessageCircle, MapPin } from 'lucide-react';
+import { Send, Loader, MessageCircle } from 'lucide-react';
 import { EmergencyBanner } from './EmergencyBanner';
 import { ScheduleModal } from './ScheduleModal';
 
@@ -22,7 +22,35 @@ export function ChatComponent() {
   const [showSources, setShowSources] = useState<string | null>(null);
   const [showScheduleModal, setShowScheduleModal] = useState(false);
   const [userLocation, setUserLocation] = useState<string>('');
-  const [locationSet, setLocationSet] = useState(false);
+
+  // All known dorm names for auto-detection from user messages
+  const DORM_NAMES = [
+    'boggs hall', 'boggs', 'church hall', 'church', 'hill hall', 'hill', 'mell hall', 'mell',
+    'morris hall', 'morris', 'lipscomb hall', 'lipscomb', 'mary lyndon hall', 'mary lyndon',
+    'creswell hall', 'creswell', 'russell hall', 'russell',
+    'myers hall', 'myers', 'soule hall', 'soule',
+    'brumby hall', 'brumby',
+    'reed hall', 'reed', 'payne hall', 'payne',
+    'oglethorpe house', 'oglethorpe', 'o-house',
+    'rutherford hall', 'rutherford',
+    'busbee hall', 'busbee',
+    'vandiver hall', 'vandiver', 'rooker hall', 'rooker', 'mcwhorter hall', 'mcwhorter',
+    'east campus village', 'ecv',
+    'brown hall', 'brown',
+    'highland', 'building 1516', '1516', 'university village',
+    'rogers road', 'rogers',
+    'brandon oaks',
+    'black-diallo-miller', 'bdm',
+  ];
+
+  function detectDorm(text: string): string | null {
+    const lower = text.toLowerCase();
+    // Sort by length descending so "boggs hall" matches before "boggs"
+    for (const dorm of DORM_NAMES.sort((a, b) => b.length - a.length)) {
+      if (lower.includes(dorm)) return dorm;
+    }
+    return null;
+  }
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -48,6 +76,13 @@ export function ChatComponent() {
     setInput('');
     setLoading(true);
 
+    // Auto-detect dorm from user message
+    const detected = detectDorm(input);
+    const effectiveLocation = detected || userLocation;
+    if (detected && !userLocation) {
+      setUserLocation(detected);
+    }
+
     try {
       const conversationHistory = messages.map((msg) => ({
         role: msg.role,
@@ -63,7 +98,7 @@ export function ChatComponent() {
           message: input,
           conversationHistory,
           stream: false,
-          userLocation: userLocation || undefined,
+          userLocation: effectiveLocation || undefined,
         }),
       });
 
@@ -136,21 +171,6 @@ export function ChatComponent() {
             <p className="text-sm sm:text-xl text-gray-800 text-center mb-4 sm:mb-6 max-w-md">
               Ask about campus resources, dorm policies, and residential life
             </p>
-
-            {/* Location Input */}
-            <div className="flex items-center gap-2 mb-4 sm:mb-8 w-full max-w-sm">
-              <MapPin className="w-4 h-4 text-red-700 flex-shrink-0" />
-              <input
-                type="text"
-                value={userLocation}
-                onChange={(e) => { setUserLocation(e.target.value); setLocationSet(false); }}
-                onBlur={() => { if (userLocation.trim()) setLocationSet(true); }}
-                onKeyDown={(e) => { if (e.key === 'Enter' && userLocation.trim()) setLocationSet(true); }}
-                placeholder="Your dorm (e.g. Creswell Hall)..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-red-700 text-gray-900 placeholder:text-gray-400"
-              />
-              {locationSet && <span className="text-xs text-green-600 font-medium">✓ Set</span>}
-            </div>
 
             {/* Quick Questions */}
             <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full max-w-2xl">
