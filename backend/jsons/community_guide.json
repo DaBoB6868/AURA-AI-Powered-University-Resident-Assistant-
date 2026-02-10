@@ -82,6 +82,10 @@
           "specifications": "Maximum 1.0 cubic ft. and 700 watts"
         },
         {
+          "item": "Irons",
+          "requirements": "May be used only with an ironing board and should be unplugged when not in use"
+        },
+        {
           "item": "General appliances",
           "examples": "Radios, stereos, desk lamps, computers, TVs, electric blankets"
         },
