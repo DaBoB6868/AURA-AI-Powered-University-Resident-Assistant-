@@ -6,7 +6,7 @@ import path from 'path';
 const chatModel = new ChatOpenAI({
   openAIApiKey: process.env.OPENAI_API_KEY,
   modelName: 'openai/gpt-3.5-turbo',
-  temperature: 0.7,
+  temperature: 0.2,
   configuration: {
     baseURL: 'https://openrouter.ai/api/v1',
   },
@@ -170,6 +170,8 @@ function getRelevantSections(query: string): string {
     'microwave': ['policies.appliances_and_electronic_devices'],
     'fridge': ['policies.appliances_and_electronic_devices'],
     'refrigerator': ['policies.appliances_and_electronic_devices'],
+    'iron': ['policies.appliances_and_electronic_devices'],
+    'ironing': ['policies.appliances_and_electronic_devices'],
     'cooking': ['policies.cooking_guidelines'],
     'cook': ['policies.cooking_guidelines'],
     'kitchen': ['policies.cooking_guidelines'],
@@ -311,19 +313,19 @@ export async function generateRAGResponse(
       : `\nThe student has NOT specified which dorm they live in. If they ask a question that depends on their specific dorm or community (e.g. quiet hours, front desk phone, evacuation location, RA on-call number), you MUST ask them which dorm or residence hall they live in FIRST before answering. Say something like "Which dorm do you live in? That way I can give you the exact info for your building!" Do NOT guess or give a generic answer for dorm-specific questions.`;
 
     const systemPrompt = `You are AURA (AI-powered University Resident Assistant), a friendly and knowledgeable UGA (University of Georgia) dorm assistant. You help UGA students with questions about UGA dorm policies, UGA Housing community guidelines, campus resources, and residential life.
-${locationContext}
+  ${locationContext}
 
-IMPORTANT: Use the UGA policy data provided below to answer questions accurately. The data may come from:
-- UGA Housing Community Guide
-- UGA Academic Honesty Policy
-- UGA Code of Conduct
-- UGA Computer Use Policy
-- UGA Non-Discrimination & Anti-Harassment Policy
-- UGA Programs Serving Minors Policy
+  IMPORTANT: Use ONLY the UGA policy data provided below to answer questions accurately. The data may come from:
+  - UGA Housing Community Guide
+  - UGA Academic Honesty Policy
+  - UGA Code of Conduct
+  - UGA Computer Use Policy
+  - UGA Non-Discrimination & Anti-Harassment Policy
+  - UGA Programs Serving Minors Policy
 
-Quote specific policies, numbers, rules, and details. Do NOT make up information — if the data doesn't cover something, say so honestly and suggest contacting UGA Housing at 706-542-1421 or housing@uga.edu.
+  Quote specific policies, numbers, rules, and details. Do NOT make up information or infer beyond the provided data. If the data doesn't cover something, say you couldn't find it in the policies and suggest contacting UGA Housing at 706-542-1421 or housing@uga.edu.
 
-Be friendly, supportive, and professional. Keep responses concise and helpful. Go Dawgs!`;
+  Be friendly, supportive, and professional. Keep responses concise and helpful. Go Dawgs!`;
 
     // Convert conversation history to LangChain messages
     const messages: (SystemMessage | HumanMessage | AIMessage)[] = [
@@ -338,11 +340,10 @@ Be friendly, supportive, and professional. Keep responses concise and helpful. G
       );
     }
 
-    // Add current query with community guide context
     const contextBlock = [relevantInfo, buildingInfo].filter(Boolean).join('\n\n');
     messages.push(
       new HumanMessage(
-        `Question: "${userQuery}"\n\nUGA Policy Information:\n${contextBlock || 'No specific section matched. Use your general knowledge of UGA Housing policies.'}`
+        `Question: "${userQuery}"\n\nUGA Policy Information:\n${contextBlock || 'No matching policy section found for this question.'}`
       )
     );
 
@@ -381,7 +382,7 @@ export async function generateStreamingRAGResponse(
     ? `\nThe student lives in ${userLocation}. Tailor answers to their dorm when possible.`
     : `\nThe student has NOT told you their dorm. If the question is dorm-specific, ask which dorm they live in first.`;
 
-  const systemPrompt = `You are AURA (AI-powered University Resident Assistant), a friendly UGA dorm assistant. Use the UGA policy data below to answer accurately. The data may come from the Community Guide, Academic Honesty Policy, Code of Conduct, Computer Use Policy, Non-Discrimination Policy, or Minors Policy. Do NOT make up info.
+  const systemPrompt = `You are AURA (AI-powered University Resident Assistant), a friendly UGA dorm assistant. Use ONLY the UGA policy data below to answer accurately. The data may come from the Community Guide, Academic Honesty Policy, Code of Conduct, Computer Use Policy, Non-Discrimination Policy, or Minors Policy. Do NOT make up info or infer beyond the provided data.
 ${locationContext}
 Be concise and helpful. Go Dawgs!`;
 
@@ -400,7 +401,7 @@ Be concise and helpful. Go Dawgs!`;
   const contextBlock = [relevantInfo, buildingInfo].filter(Boolean).join('\n\n');
   messages.push(
     new HumanMessage(
-      `Question: "${userQuery}"\n\nUGA Policy Information:\n${contextBlock || 'No specific match found.'}`
+      `Question: "${userQuery}"\n\nUGA Policy Information:\n${contextBlock || 'No matching policy section found for this question.'}`
     )
   );
 

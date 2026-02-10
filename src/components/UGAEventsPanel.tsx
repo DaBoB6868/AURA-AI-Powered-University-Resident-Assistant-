@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Calendar, MapPin, Clock, RefreshCw, ExternalLink, Users, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface UGAEvent {
@@ -65,6 +65,7 @@ export default function UGAEventsPanel() {
   const [error, setError] = useState('');
   const [showMap, setShowMap] = useState(false);
   const [lastUpdated, setLastUpdated] = useState('');
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const fetchEvents = async () => {
     setLoading(true);
@@ -89,9 +90,27 @@ export default function UGAEventsPanel() {
     return () => clearInterval(interval);
   }, []);
 
+  const categories = useMemo(() => {
+    const unique = Array.from(
+      new Set(events.map((event) => event.category).filter(Boolean))
+    ).sort();
+    return ['All', ...unique];
+  }, [events]);
+
+  useEffect(() => {
+    if (!categories.includes(activeCategory)) {
+      setActiveCategory('All');
+    }
+  }, [categories, activeCategory]);
+
+  const visibleEvents = useMemo(() => {
+    if (activeCategory === 'All') return events;
+    return events.filter((event) => event.category === activeCategory);
+  }, [events, activeCategory]);
+
   // Group events by day
   const groupedEvents: Record<string, UGAEvent[]> = {};
-  events.forEach((event) => {
+  visibleEvents.forEach((event) => {
     const label = getDayLabel(event.startDate);
     if (!groupedEvents[label]) groupedEvents[label] = [];
     groupedEvents[label].push(event);
@@ -145,9 +164,33 @@ export default function UGAEventsPanel() {
             <ExternalLink className="w-3 h-3" /> Full Map
           </a>
         </div>
+          {/* Category Filters */}
+          {categories.length > 1 && (
+            <div className="px-3 py-2 border-b border-gray-100 bg-white">
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => {
+                  const isActive = category === activeCategory;
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setActiveCategory(category)}
+                      className={`text-[11px] px-2.5 py-1 rounded-full border transition-colors ${
+                        isActive
+                          ? 'bg-red-600 text-white border-red-600'
+                          : 'bg-white text-gray-600 border-gray-200 hover:border-red-300 hover:text-red-600'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
       )}
 
-      {/* Events List */}
+            {loading && events.length === 0 ? (
       <div className="flex-1 overflow-y-auto">
         {loading && events.length === 0 ? (
           <div className="flex items-center justify-center py-8">
@@ -163,6 +206,18 @@ export default function UGAEventsPanel() {
             >
               Try again
             </button>
+          </div>
+        ) : visibleEvents.length === 0 ? (
+          <div className="text-center py-8 px-4">
+            <p className="text-sm text-gray-500">No events found for {activeCategory}.</p>
+            {activeCategory !== 'All' && (
+              <button
+                onClick={() => setActiveCategory('All')}
+                className="mt-2 text-xs text-red-600 hover:underline"
+              >
+                Show all events
+              </button>
+            )}
           </div>
         ) : (
           <div className="divide-y divide-gray-100">
