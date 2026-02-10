@@ -70,30 +70,46 @@ async function ensurePdfInitialized(): Promise<void> {
 async function getPdfContext(query: string): Promise<{ context: string; sources: string[] }> {
   await ensurePdfInitialized();
 
-  const results = await vectorStore.searchWithScores(query, 6);
-  const filtered = results.filter((item) => item.score >= 0.12);
-  if (filtered.length === 0) {
-    return { context: '', sources: [] };
+  const results = await vectorStore.searchWithScores(query, 8);
+  const filtered = results.filter((item) => item.score >= 0.08);
+
+  const pickContext = (docs: Array<{ content: string; metadata: { source: string; pageNumber?: number } }>) => {
+    const context = docs
+      .map((doc) => {
+        const page = doc.metadata.pageNumber ? ` p. ${doc.metadata.pageNumber}` : '';
+        return `[${doc.metadata.source}${page}]
+${doc.content}`;
+      })
+      .join('\n\n');
+
+    const sources = Array.from(
+      new Set(
+        docs.map((doc) => {
+          const page = doc.metadata.pageNumber ? ` p. ${doc.metadata.pageNumber}` : '';
+          return `${doc.metadata.source}${page}`;
+        })
+      )
+    );
+
+    return { context, sources };
+  };
+
+  if (filtered.length > 0) {
+    return pickContext(filtered.map((item) => item.doc));
   }
 
-  const context = filtered
-    .map((item) => {
-      const page = item.doc.metadata.pageNumber ? ` p. ${item.doc.metadata.pageNumber}` : '';
-      return `[${item.doc.metadata.source}${page}]
-${item.doc.content}`;
-    })
-    .join('\n\n');
-
-  const sources = Array.from(
-    new Set(
-      filtered.map((item) => {
-        const page = item.doc.metadata.pageNumber ? ` p. ${item.doc.metadata.pageNumber}` : '';
-        return `${item.doc.metadata.source}${page}`;
-      })
-    )
+  const keywords = Array.from(
+    new Set((query.toLowerCase().match(/[a-z0-9]{3,}/g) || []))
   );
+  const keywordMatches = vectorStore
+    .getAllDocuments()
+    .filter((doc) => keywords.some((word) => doc.content.toLowerCase().includes(word)));
 
-  return { context, sources };
+  if (keywordMatches.length > 0) {
+    return pickContext(keywordMatches.slice(0, 6));
+  }
+
+  return { context: '', sources: [] };
 }
 
 // Flatten JSON into readable text sections the LLM can consume
@@ -355,6 +371,7 @@ export async function generateRAGResponse(
   ${locationContext}
 
   IMPORTANT: Use ONLY the UGA policy excerpts provided below to answer questions accurately.
+  If a specific item is not mentioned in the excerpts, say you could not find it in the policies. Do NOT assume it is allowed or prohibited.
 
   Quote specific policies, numbers, rules, and details. Do NOT make up information or infer beyond the provided data. If the data doesn't cover something, say you couldn't find it in the policies and suggest contacting UGA Housing at 706-542-1421 or housing@uga.edu.
 
